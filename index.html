@@ -70,6 +70,12 @@
         .header-logo {
             height: 48px;
             width: auto;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .header-logo:hover {
+            transform: scale(1.3);
         }
 
         .coming-soon-badge {
@@ -695,29 +701,33 @@
             }
 
             .site-header {
-                padding: 20px 24px;
+                padding: 16px 20px;
+                position: relative;
+                background: var(--color-bg);
             }
 
             .header-logo {
                 height: 40px;
+                max-width: 120px;
             }
 
             .coming-soon-badge {
-                font-size: 0.7rem;
-                padding: 8px 14px;
+                font-size: 0.65rem;
+                padding: 6px 12px;
+                letter-spacing: 1px;
             }
 
             .hero {
-                padding: 100px 0 60px;
+                padding: 40px 0 60px;
             }
 
             .hero-watermark {
-                width: clamp(350px, 80vw, 600px);
-                opacity: 0.6;
+                width: clamp(300px, 80vw, 500px);
+                opacity: 0.5;
             }
 
             .creators-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
                 gap: 16px;
             }
 
@@ -774,35 +784,53 @@
             }
 
             .site-header {
-                padding: 16px 16px;
+                padding: 12px 16px;
+                position: relative;
+                background: var(--color-bg);
+                flex-wrap: nowrap;
+                gap: 8px;
             }
 
             .header-logo {
-                height: 36px;
+                height: 32px;
+                max-width: 100px;
+                flex-shrink: 0;
             }
 
             .coming-soon-badge {
-                font-size: 0.6rem;
-                padding: 6px 10px;
-                letter-spacing: 1px;
+                font-size: 0.55rem;
+                padding: 5px 8px;
+                letter-spacing: 0.5px;
+                white-space: nowrap;
+                flex-shrink: 0;
             }
 
             .hero {
-                padding: 80px 0 48px;
+                padding: 32px 0 48px;
             }
 
             .hero-watermark {
-                width: clamp(280px, 90vw, 400px);
-                opacity: 0.55;
+                width: clamp(250px, 85vw, 350px);
+                opacity: 0.45;
             }
 
             .hero-label {
-                font-size: 0.75rem;
+                font-size: 0.7rem;
                 letter-spacing: 2px;
             }
 
+            .hero-title {
+                font-size: clamp(1.75rem, 7vw, 2.5rem);
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+
             .services {
-                gap: 16px;
+                gap: 12px;
+                flex-direction: column;
+                align-items: center;
             }
 
             .service-item {
@@ -876,8 +904,8 @@
             }
 
             .tagline {
-                font-size: 0.95rem;
-                letter-spacing: 2px;
+                font-size: 0.85rem;
+                letter-spacing: 1.5px;
             }
         }
     </style>
