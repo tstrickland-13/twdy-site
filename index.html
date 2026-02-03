@@ -8,6 +8,8 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="logo-white.png">
+    <link rel="apple-touch-icon" href="logo-white.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="logo-white.png">
     
     <!-- Fonts - Using fonts similar to the deck's bold style -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,10 +18,10 @@
     
     <style>
         :root {
-            --color-bg: #1C1C1E;
-            --color-surface: #2C2C2E;
-            --color-surface-light: #3A3A3C;
-            --color-border: #48484A;
+            --color-bg: #000000;
+            --color-surface: #1C1C1E;
+            --color-surface-light: #2C2C2E;
+            --color-border: #3A3A3C;
             --color-text: #FFFFFF;
             --color-text-secondary: #A1A1A6;
             --color-text-muted: #6E6E73;
@@ -54,28 +56,21 @@
             padding: 80px 0;
         }
 
-        /* Header with logo */
+        /* Header - sticky navigation */
         .site-header {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            padding: 24px 32px;
-            z-index: 10;
+            padding: 16px 32px;
+            z-index: 100;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .header-logo {
-            height: 48px;
-            width: auto;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .header-logo:hover {
-            transform: scale(1.3);
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: background 0.3s ease;
         }
 
         .coming-soon-badge {
@@ -90,73 +85,55 @@
             border-radius: 4px;
         }
 
-        /* Hero Section */
-        .hero {
-            padding: 120px 0 80px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Large watermark logo behind content */
-        .hero-watermark {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: clamp(500px, 75vw, 1000px);
-            height: auto;
-            opacity: 0.45;
-            pointer-events: none;
-            mix-blend-mode: multiply;
-        }
-
-        .hero .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-label {
+        .contact-btn {
             font-family: 'Oswald', sans-serif;
             font-size: 0.85rem;
             font-weight: 600;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            color: var(--color-text);
+            background: var(--color-accent);
+            padding: 10px 20px;
+            border: 2px solid var(--color-accent);
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-btn:hover {
+            background: transparent;
             color: var(--color-accent);
-            margin-bottom: 20px;
         }
 
-        .hero-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
 
-        .hero-subtitle {
-            font-size: 1.1rem;
-            color: var(--color-text-secondary);
-            max-width: 600px;
-            margin: 0 auto 32px;
-            line-height: 1.7;
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
         }
 
-        .hero-quote {
-            font-size: 1rem;
-            font-style: italic;
-            color: var(--color-text-muted);
-            padding: 20px 0;
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .hero-quote span {
-            color: var(--color-accent);
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(28, 28, 30, 0.3);
+            z-index: 2;
         }
 
         /* Services */
@@ -559,14 +536,13 @@
             border-bottom: 1px solid var(--color-border);
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 64px;
-            align-items: center;
+        .contact-inner {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .contact-info h2 {
+        .contact-title {
             font-family: 'Oswald', sans-serif;
             font-size: 2rem;
             font-weight: 600;
@@ -575,27 +551,29 @@
             letter-spacing: 1px;
         }
 
-        .contact-info > p {
+        .contact-subtitle {
             color: var(--color-text-secondary);
-            margin-bottom: 32px;
+            margin-bottom: 40px;
             line-height: 1.7;
         }
 
-        .contact-person {
+        .contact-card {
             display: flex;
+            flex-direction: column;
             align-items: center;
             gap: 20px;
-            padding: 24px;
+            padding: 40px;
             background: var(--color-surface);
-            border-radius: 8px;
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
         }
 
         .contact-avatar {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             overflow: hidden;
-            flex-shrink: 0;
+            border: 3px solid var(--color-accent);
         }
 
         .contact-avatar img {
@@ -604,61 +582,39 @@
             object-fit: cover;
         }
 
-        .contact-person-info h4 {
+        .contact-details {
+            text-align: center;
+        }
+
+        .contact-details h4 {
             font-family: 'Oswald', sans-serif;
             font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 2px;
+            font-size: 1.25rem;
+            margin-bottom: 4px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        .contact-person-info p {
+        .contact-role {
             font-size: 0.9rem;
             color: var(--color-text-muted);
+            margin-bottom: 16px;
         }
 
-        .contact-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 20px 24px;
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
+        .contact-email {
+            display: inline-block;
+            font-size: 1rem;
+            color: var(--color-accent);
             text-decoration: none;
+            padding: 12px 24px;
+            border: 2px solid var(--color-accent);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-email:hover {
+            background: var(--color-accent);
             color: var(--color-text);
-            transition: border-color 0.2s ease;
-        }
-
-        .contact-method:hover {
-            border-color: var(--color-text-muted);
-        }
-
-        .contact-method svg {
-            width: 24px;
-            height: 24px;
-            color: var(--color-text-muted);
-            flex-shrink: 0;
-        }
-
-        .contact-method-text span {
-            display: block;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--color-text-muted);
-            margin-bottom: 4px;
-        }
-
-        .contact-method-text strong {
-            font-weight: 500;
         }
 
         /* Footer */
@@ -701,29 +657,18 @@
             }
 
             .site-header {
-                padding: 16px 20px;
-                position: relative;
-                background: var(--color-bg);
+                padding: 12px 20px;
             }
 
-            .header-logo {
-                height: 40px;
-                max-width: 120px;
-            }
-
-            .coming-soon-badge {
+            .coming-soon-badge,
+            .contact-btn {
                 font-size: 0.65rem;
                 padding: 6px 12px;
                 letter-spacing: 1px;
             }
 
             .hero {
-                padding: 40px 0 60px;
-            }
-
-            .hero-watermark {
-                width: clamp(300px, 80vw, 500px);
-                opacity: 0.5;
+                min-height: 60vh;
             }
 
             .creators-grid {
@@ -743,9 +688,8 @@
                 font-size: 0.75rem;
             }
 
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .contact-card {
+                padding: 30px 20px;
             }
 
             .talent-grid {
@@ -784,20 +728,12 @@
             }
 
             .site-header {
-                padding: 12px 16px;
-                position: relative;
-                background: var(--color-bg);
-                flex-wrap: nowrap;
+                padding: 10px 16px;
                 gap: 8px;
             }
 
-            .header-logo {
-                height: 32px;
-                max-width: 100px;
-                flex-shrink: 0;
-            }
-
-            .coming-soon-badge {
+            .coming-soon-badge,
+            .contact-btn {
                 font-size: 0.55rem;
                 padding: 5px 8px;
                 letter-spacing: 0.5px;
@@ -806,35 +742,7 @@
             }
 
             .hero {
-                padding: 32px 0 48px;
-            }
-
-            .hero-watermark {
-                width: clamp(250px, 85vw, 350px);
-                opacity: 0.45;
-            }
-
-            .hero-label {
-                font-size: 0.7rem;
-                letter-spacing: 2px;
-            }
-
-            .hero-title {
-                font-size: clamp(1.75rem, 7vw, 2.5rem);
-            }
-
-            .hero-subtitle {
-                font-size: 0.95rem;
-            }
-
-            .services {
-                gap: 12px;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .service-item {
-                font-size: 0.8rem;
+                min-height: 50vh;
             }
 
             .creators-grid {
@@ -884,19 +792,17 @@
                 font-size: 0.85rem;
             }
 
-            .contact-person {
-                padding: 20px;
-                flex-direction: column;
-                text-align: center;
+            .contact-card {
+                padding: 24px 16px;
             }
 
             .contact-avatar {
-                width: 100px;
-                height: 100px;
+                width: 80px;
+                height: 80px;
             }
 
-            .contact-method {
-                padding: 16px 20px;
+            .contact-title {
+                font-size: 1.5rem;
             }
 
             .tagline-section {
@@ -914,32 +820,16 @@
 
     <!-- Header -->
     <header class="site-header">
-        <img src="logo-white.png" alt="TWDY" class="header-logo">
         <span class="coming-soon-badge">Coming Soon</span>
+        <a href="#contact" class="contact-btn">Contact</a>
     </header>
 
     <!-- Hero -->
-    <section class="hero">
-        <img src="logo-white.png" alt="" class="hero-watermark">
-        <div class="container">
-            <p class="hero-label">Creator & Athlete Management</p>
-            <h1 class="hero-title">Brand Partnerships Built on<br>Authentic Connection</h1>
-            
-            <div class="services">
-                <span class="service-item">Brand Partnerships</span>
-                <span class="service-item">Campaign Management</span>
-                <span class="service-item">Talent Strategy</span>
-            </div>
-
-            <p class="hero-subtitle">
-                Connecting emerging athletes, influencers, and digital talent with companies 
-                that align with their values, audience, and lifestyle.
-            </p>
-
-            <p class="hero-quote">
-                <span>"</span>TWDY was built to make real connections — not cold campaigns.<span>"</span>
-            </p>
-        </div>
+    <section class="hero" id="hero">
+        <video class="hero-video" id="heroVideo" autoplay muted playsinline>
+            <source src="videos/twdy_intro.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
     </section>
 
     <!-- Tagline Divider -->
@@ -1188,44 +1078,23 @@
     </section>
 
     <!-- Contact -->
-    <section class="contact-section">
+    <section class="contact-section" id="contact">
         <div class="container">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>Let's Build a Partnership</h2>
-                    <p>
-                        Ready to connect your brand with authentic creators? We're here to help 
-                        craft campaigns that deliver measurable value through genuine connection.
-                    </p>
-                    <div class="contact-person">
-                        <div class="contact-avatar">
-                            <img src="images/miles.png" alt="Miles Tweedy">
-                        </div>
-                        <div class="contact-person-info">
-                            <h4>Miles Tweedy</h4>
-                            <p>Founder & CEO</p>
-                        </div>
+            <div class="contact-inner">
+                <p class="section-label">Get in Touch</p>
+                <h2 class="contact-title">Let's Build Something Together</h2>
+                <p class="contact-subtitle">
+                    Ready to connect your brand with authentic creators? Reach out and let's start a conversation.
+                </p>
+                <div class="contact-card">
+                    <div class="contact-avatar">
+                        <img src="images/miles.png" alt="Miles Tweedy">
                     </div>
-                </div>
-                <div class="contact-methods">
-                    <a href="mailto:miles@twdyagency.com" class="contact-method">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                        </svg>
-                        <div class="contact-method-text">
-                            <span>Email</span>
-                            <strong>miles@twdyagency.com</strong>
-                        </div>
-                    </a>
-                    <a href="tel:+12013120790" class="contact-method">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                        </svg>
-                        <div class="contact-method-text">
-                            <span>Phone</span>
-                            <strong>(201) 312-0790</strong>
-                        </div>
-                    </a>
+                    <div class="contact-details">
+                        <h4>Miles Tweedy</h4>
+                        <p class="contact-role">Founder & CEO</p>
+                        <a href="mailto:miles@twdyagency.com" class="contact-email">miles@twdyagency.com</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1241,6 +1110,70 @@
     </footer>
 
     <script>
+        // Hero video - reset when scrolled past & auto-scroll after video ends
+        document.addEventListener('DOMContentLoaded', function() {
+            const hero = document.getElementById('hero');
+            const video = document.getElementById('heroVideo');
+            let hasScrolledPast = false;
+            let userHasScrolled = false;
+            let autoScrollTimeout = null;
+            let isAutoScrolling = false;
+
+            // Detect any user scroll activity
+            window.addEventListener('wheel', function() { userHasScrolled = true; }, { passive: true });
+            window.addEventListener('touchmove', function() { userHasScrolled = true; }, { passive: true });
+            window.addEventListener('keydown', function(e) {
+                if (['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Space'].includes(e.code)) {
+                    userHasScrolled = true;
+                }
+            });
+
+            // When video ends, auto-scroll to show tagline + about section
+            video.addEventListener('ended', function() {
+                // Only auto-scroll if user hasn't manually scrolled and we're still at the top
+                if (!userHasScrolled && window.scrollY < hero.offsetHeight * 0.5) {
+                    autoScrollTimeout = setTimeout(function() {
+                        isAutoScrolling = true;
+                        const taglineSection = document.querySelector('.tagline-section');
+                        if (taglineSection) {
+                            // Scroll so tagline is at top of viewport (with small offset for header)
+                            const scrollTo = taglineSection.offsetTop - 60;
+                            window.scrollTo({ top: scrollTo, behavior: 'smooth' });
+                            // Reset auto-scrolling flag after animation completes
+                            setTimeout(function() {
+                                isAutoScrolling = false;
+                            }, 1000);
+                        }
+                    }, 500); // 0.5 second delay
+                }
+            });
+
+            // Cancel auto-scroll if user starts scrolling during the delay
+            window.addEventListener('scroll', function() {
+                // If user scrolls during the delay period, cancel auto-scroll
+                if (autoScrollTimeout && !isAutoScrolling) {
+                    clearTimeout(autoScrollTimeout);
+                    autoScrollTimeout = null;
+                }
+
+                const heroBottom = hero.offsetTop + hero.offsetHeight;
+                const scrollPosition = window.scrollY;
+
+                // Check if user has scrolled fully past the hero
+                if (scrollPosition > heroBottom && !hasScrolledPast) {
+                    hasScrolledPast = true;
+                }
+
+                // When user scrolls back to top (hero visible again) after scrolling past, reset video
+                if (hasScrolledPast && scrollPosition < hero.offsetHeight * 0.5) {
+                    video.currentTime = 0;
+                    video.play();
+                    hasScrolledPast = false;
+                    userHasScrolled = false; // Reset so auto-scroll can work again
+                }
+            });
+        });
+
         // Rotating Images - each rotator cycles through its images
         document.addEventListener('DOMContentLoaded', function() {
             const rotators = document.querySelectorAll('.image-rotator');
