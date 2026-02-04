@@ -162,29 +162,6 @@
             border-radius: 50%;
         }
 
-        /* Tagline Divider */
-        .tagline-section {
-            background: var(--color-surface);
-            border-top: 1px solid var(--color-border);
-            border-bottom: 1px solid var(--color-border);
-            padding: 48px 0;
-        }
-
-        .tagline {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 500;
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            text-align: center;
-            color: var(--color-text-secondary);
-        }
-
-        .tagline span {
-            color: var(--color-accent);
-            margin: 0 16px;
-        }
-
         /* About Section */
         .about-section {
             border-bottom: 1px solid var(--color-border);
@@ -698,16 +675,6 @@
                 margin: 0 auto;
             }
 
-            .tagline {
-                font-size: 1.1rem;
-                letter-spacing: 3px;
-            }
-
-            .tagline span {
-                display: block;
-                margin: 8px 0;
-            }
-
             .about-title,
             .contact-info h2 {
                 font-size: 1.75rem;
@@ -805,14 +772,6 @@
                 font-size: 1.5rem;
             }
 
-            .tagline-section {
-                padding: 32px 0;
-            }
-
-            .tagline {
-                font-size: 0.85rem;
-                letter-spacing: 1.5px;
-            }
         }
     </style>
 </head>
@@ -826,17 +785,10 @@
 
     <!-- Hero -->
     <section class="hero" id="hero">
-        <video class="hero-video" id="heroVideo" autoplay muted playsinline>
-            <source src="videos/twdy_intro.mp4" type="video/mp4">
+        <video class="hero-video" id="heroVideo" autoplay muted playsinline loop>
+            <source src="videos/twdy_intro_combined.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
-    </section>
-
-    <!-- Tagline Divider -->
-    <section class="tagline-section">
-        <div class="container">
-            <p class="tagline">Authenticity <span>·</span> Creativity <span>·</span> Impact</p>
-        </div>
     </section>
 
     <!-- About -->
@@ -1131,16 +1083,16 @@
                 }
             });
 
-            // When video ends, auto-scroll to show tagline + about section
+            // When video ends, auto-scroll to show about section
             video.addEventListener('ended', function() {
                 // Only auto-scroll if user hasn't manually scrolled and we're still at the top
                 if (!userHasScrolled && window.scrollY < hero.offsetHeight * 0.5) {
                     autoScrollTimeout = setTimeout(function() {
                         isAutoScrolling = true;
-                        const taglineSection = document.querySelector('.tagline-section');
-                        if (taglineSection) {
-                            // Scroll so tagline is at top of viewport (with small offset for header)
-                            const scrollTo = taglineSection.offsetTop - 60;
+                        const aboutSection = document.querySelector('.about-section');
+                        if (aboutSection) {
+                            // Scroll so about section is at top of viewport (with small offset for header)
+                            const scrollTo = aboutSection.offsetTop - 60;
                             window.scrollTo({ top: scrollTo, behavior: 'smooth' });
                             // Reset auto-scrolling flag after animation completes
                             setTimeout(function() {
