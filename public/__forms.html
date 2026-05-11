@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Netlify Forms detection</title>
+  </head>
+  <body>
+    <!--
+      Netlify scans the deployed site for static HTML forms in order to
+      register them. Because this site renders forms via React/Next, we
+      provide a hidden static copy here so Netlify Forms keeps working.
+    -->
+    <form name="newsletter" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="email" name="email" />
+      <input name="bot-field" />
+    </form>
+  </body>
+</html>
