@@ -22,7 +22,8 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-3 md:px-8 md:py-4">
         <Link
           href="/"
-          className="flex items-center gap-2"
+          className="flex items-center"
+          aria-label="TWDY Agency — Home"
           onClick={() => setOpen(false)}
         >
           <Image
@@ -33,9 +34,6 @@ export function SiteHeader() {
             priority
             className="h-8 w-8 object-contain md:h-9 md:w-9"
           />
-          <span className="font-[family-name:var(--font-oswald)] text-base font-semibold uppercase tracking-[0.18em] md:text-lg">
-            TWDY
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
