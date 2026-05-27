@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const NAV_ITEMS = [
   { href: "/talent", label: "Talent" },
@@ -13,45 +13,82 @@ const NAV_ITEMS = [
   { href: "/contact", label: "Contact" },
 ] as const;
 
+const SCROLL_THRESHOLD = 8;
+const REVEAL_AT_TOP = 80;
+
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
+  const ticking = useRef(false);
+
+  useEffect(() => {
+    lastScrollY.current = window.scrollY;
+
+    const onScroll = () => {
+      if (ticking.current) return;
+      ticking.current = true;
+      window.requestAnimationFrame(() => {
+        const current = window.scrollY;
+        const delta = current - lastScrollY.current;
+
+        if (current < REVEAL_AT_TOP) {
+          setHidden(false);
+        } else if (Math.abs(delta) > SCROLL_THRESHOLD) {
+          setHidden(delta > 0);
+        }
+
+        lastScrollY.current = current;
+        ticking.current = false;
+      });
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Always show nav while the mobile menu is open.
+  const isHidden = hidden && !open;
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-black/80 backdrop-blur supports-[backdrop-filter]:bg-black/60">
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-5 py-3 md:px-8 md:py-4">
+    <header
+      className={[
+        "nav-fade-in fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black transition-transform duration-300 ease-out",
+        isHidden ? "-translate-y-full" : "translate-y-0",
+      ].join(" ")}
+    >
+      <div className="mx-auto flex w-full items-center justify-between px-6 py-4 md:px-12 md:py-5">
         <Link
           href="/"
-          className="flex items-center"
           aria-label="TWDY Agency — Home"
           onClick={() => setOpen(false)}
+          className="inline-flex items-center"
         >
           <Image
-            src="/logo-white.png"
+            src="/logo-grey.png"
             alt="TWDY Agency"
-            width={36}
-            height={36}
+            width={180}
+            height={180}
             priority
-            className="h-8 w-8 object-contain md:h-9 md:w-9"
+            className="h-12 w-auto md:h-14"
           />
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-8 md:flex lg:gap-12">
           {NAV_ITEMS.map((item) => {
             const active =
               pathname === item.href || pathname.startsWith(`${item.href}/`);
-            const isContact = item.href === "/contact";
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={[
-                  "font-[family-name:var(--font-oswald)] text-sm font-semibold uppercase tracking-[0.18em] transition-colors",
-                  isContact
-                    ? "ml-2 rounded border-2 border-[var(--color-accent)] bg-[var(--color-accent)] px-4 py-2 text-white hover:bg-transparent hover:text-[var(--color-accent)]"
-                    : "px-3 py-2 text-[var(--color-text-secondary)] hover:text-white",
-                  active && !isContact ? "text-white" : "",
+                  "font-[family-name:var(--font-oswald)] text-base font-semibold uppercase tracking-[0.22em] transition-colors md:text-lg",
+                  active
+                    ? "text-[var(--color-accent)]"
+                    : "text-white hover:text-[var(--color-accent)]",
                 ].join(" ")}
               >
                 {item.label}
@@ -70,8 +107,8 @@ export function SiteHeader() {
           <span className="sr-only">Toggle menu</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="22"
-            height="22"
+            width="24"
+            height="24"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -97,8 +134,8 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <nav className="border-t border-[var(--color-border)] bg-black/95 md:hidden">
-          <ul className="flex flex-col px-5 py-2">
+        <nav className="border-t border-white/10 bg-black md:hidden">
+          <ul className="flex flex-col items-end px-6 py-3">
             {NAV_ITEMS.map((item) => {
               const active =
                 pathname === item.href || pathname.startsWith(`${item.href}/`);
@@ -109,10 +146,10 @@ export function SiteHeader() {
                     onClick={() => setOpen(false)}
                     aria-current={active ? "page" : undefined}
                     className={[
-                      "block py-3 font-[family-name:var(--font-oswald)] text-sm font-semibold uppercase tracking-[0.18em] transition-colors",
+                      "block py-3 text-right font-[family-name:var(--font-oswald)] text-base font-semibold uppercase tracking-[0.22em] transition-colors",
                       active
                         ? "text-[var(--color-accent)]"
-                        : "text-[var(--color-text-secondary)] hover:text-white",
+                        : "text-white hover:text-[var(--color-accent)]",
                     ].join(" ")}
                   >
                     {item.label}

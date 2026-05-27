@@ -8,11 +8,14 @@ export type CreatorStat = {
   value: string;
 };
 
+export type CreatorCategory = "creator" | "athlete";
+
 export type Creator = {
   slug: string;
   name: string;
   shortRole: string;
   fullRole: string;
+  category: CreatorCategory;
   instagram: string;
   description: string;
   tags: string[];
@@ -24,10 +27,32 @@ export type Creator = {
 
 export const CREATORS: Creator[] = [
   {
+    slug: "tayvion",
+    name: "Tayvion Power",
+    shortRole: "Artist · Model · Creator",
+    fullRole: "Artist · Model · Entrepreneur · Content Creator",
+    category: "creator",
+    instagram: "https://www.instagram.com/tayvionpower/",
+    description:
+      "A multi-hyphenate creator blending music, fashion, and entrepreneurship. Tayvion's massive cross-platform audience makes him a standout for lifestyle, fashion, and culture-driven brands.",
+    tags: ["Lifestyle", "Fashion", "Music", "Entertainment"],
+    images: [
+      { src: "/images/maximo-1.jpg", alt: "Tayvion Power" },
+      { src: "/images/maximo-2.png", alt: "Tayvion Power" },
+    ],
+    imagePosition: "center top",
+    stats: [
+      { label: "TikTok", value: "1.7M Followers" },
+      { label: "Instagram", value: "94.3K Followers" },
+      { label: "YouTube", value: "76.6K Subscribers" },
+    ],
+  },
+  {
     slug: "maximo",
     name: "Maximo Rivano",
-    shortRole: "Lifestyle · Fashion · Soccer",
-    fullRole: "Lifestyle Creator · Fashion · Soccer Player",
+    shortRole: "Model · Athlete · Creator",
+    fullRole: "Model · Athlete · Content Creator",
+    category: "creator",
     instagram: "https://www.instagram.com/maximorivano/",
     description:
       "A creator who blends sport, fashion, and culture with effortless style. His clean visual style, athletic credibility, and creative direction make him ideal for brands at the intersection of performance and lifestyle.",
@@ -37,20 +62,19 @@ export const CREATORS: Creator[] = [
       { src: "/images/maximo-2.png", alt: "Maximo Rivano" },
     ],
     stats: [
-      { label: "TikTok", value: "1.1M Followers" },
-      { label: "Instagram", value: "110K Followers" },
-      { label: "Snapchat", value: "111.7K Followers" },
-      { label: "Total Likes", value: "75.2M+" },
+      { label: "TikTok", value: "1M Followers" },
+      { label: "Instagram", value: "106K Followers" },
     ],
   },
   {
     slug: "aris",
     name: "Aris",
-    shortRole: "Twitch · Content · Personality",
-    fullRole: "Twitch Streamer · Content Creator · Personality",
+    shortRole: "Creator · Gamer · Streamer",
+    fullRole: "Content Creator · Gamer · Twitch Streamer",
+    category: "creator",
     instagram: "https://www.instagram.com/resistible/",
     description:
-      "A fast-rising Twitch streamer recognized for her personality, authenticity, and loyal community. Her mix of humor, authenticity, and on-camera presence makes her exceptional for brands in beauty, fitness, food, and lifestyle.",
+      "A fast-rising streamer and content creator recognized for her personality, authenticity, and loyal community. Her mix of humor, authenticity, and on-camera presence makes her exceptional for brands in beauty, fitness, food, and lifestyle.",
     tags: ["Food & Beverage", "Fitness", "Beauty", "Broadcasting"],
     images: [
       { src: "/images/aris-1.png", alt: "Aris" },
@@ -58,31 +82,30 @@ export const CREATORS: Creator[] = [
     ],
     imagePosition: "center top",
     stats: [
-      { label: "Twitch", value: "38K Followers" },
-      { label: "TikTok", value: "110K Followers" },
+      { label: "TikTok", value: "90.1K Followers" },
+      { label: "Twitch", value: "37K Followers" },
       { label: "YouTube", value: "16K Subscribers" },
-      { label: "Hours Watched", value: "244K" },
+      { label: "Instagram", value: "14.4K Followers" },
     ],
   },
   {
     slug: "jordan",
     name: "Jordan Lanier",
-    shortRole: "Basketball · Creator · Influencer",
-    fullRole: "College Basketball Player · Creator · Influencer",
+    shortRole: "Basketball · Creator",
+    fullRole: "Forward · University of Tampa Men's Basketball",
+    category: "athlete",
     instagram: "https://www.instagram.com/_jordanlanier_/",
     description:
       "A rising athlete at the University of Tampa who brings charisma, confidence, and authenticity to everything he does. His ability to combine performance and personality positions him as a strong voice in NIL and lifestyle marketing.",
-    tags: ["Fashion", "Food", "Athlete", "Lifestyle"],
+    tags: ["Athlete", "NIL", "Lifestyle", "Fashion"],
     images: [
       { src: "/images/jordan-1.jpeg", alt: "Jordan Lanier" },
       { src: "/images/jordan-2.png", alt: "Jordan Lanier" },
     ],
     imagePosition: "center top",
     stats: [
-      { label: "TikTok", value: "46.1K Followers" },
-      { label: "Instagram", value: "8.3K Followers" },
-      { label: "Snapchat", value: "3.6K Followers" },
-      { label: "Total Likes", value: "1.1M+" },
+      { label: "TikTok", value: "50.3K Followers" },
+      { label: "Instagram", value: "7.9K Followers" },
     ],
   },
 ];

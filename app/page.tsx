@@ -1,77 +1,50 @@
-import Image from "next/image";
 import { HeroVideo } from "@/components/home/hero-video";
+import { SpecializeSection } from "@/components/home/specialize-section";
 import { TaglineBlock } from "@/components/home/tagline-block";
-import { CreatorsCarousel } from "@/components/home/creators-carousel";
+import { PictureRotator } from "@/components/home/picture-rotator";
 import { AboutSplit } from "@/components/home/about-split";
+import { AtTwdySection } from "@/components/home/at-twdy-section";
 import { ContactForm } from "@/components/home/contact-form";
-import { InstagramIcon } from "@/components/icons/instagram-icon";
-import Link from "next/link";
 
 export default function HomePage() {
   return (
     <>
       <HeroVideo />
 
+      <SpecializeSection />
+
       <TaglineBlock />
 
-      <CreatorsCarousel />
+      <PictureRotator />
 
       <AboutSplit />
 
-      <section className="contact-section" id="contact">
+      <AtTwdySection />
+
+      <section
+        className="border-b border-[var(--color-border)] bg-[var(--color-surface)] py-24 md:py-32"
+        id="contact"
+      >
         <div className="container">
-          <div className="contact-intro">
-            <p>
-              At TWDY Agency, our goal is to bridge the gap between brands and
-              creators through authentic, story-driven partnerships. We
-              specialize in connecting emerging athletes, influencers, and
-              digital talent with companies that align with their values,
-              audience, and lifestyle — creating campaigns that feel real, not
-              transactional.
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="font-[family-name:var(--font-oswald)] mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-accent)] md:text-sm">
+              Get in Touch
             </p>
-            <Link href="/about" className="contact-learn-more">
-              Learn More →
-            </Link>
+            <h2
+              className="font-[family-name:var(--font-oswald)] mt-2 font-bold uppercase leading-[0.95] tracking-tight text-white"
+              style={{ fontSize: "clamp(2.25rem, 6vw, 4.5rem)" }}
+            >
+              Let&apos;s Build Something{" "}
+              <span className="italic text-[var(--color-accent)]">
+                Together
+              </span>
+            </h2>
+            <p className="mt-8 text-lg text-[var(--color-text-secondary)] md:text-xl">
+              Reach out and let&apos;s start a conversation.
+            </p>
           </div>
 
-          <div className="section-header">
-            <p className="section-label">Get in Touch</p>
-            <h2 className="contact-title">Let&apos;s Build Something Together</h2>
-          </div>
-
-          <div className="contact-grid">
-            <div className="contact-card">
-              <div className="contact-avatar">
-                <Image
-                  src="/images/miles.png"
-                  alt="Miles Tweedy"
-                  fill
-                  sizes="100px"
-                  style={{ objectFit: "cover" }}
-                />
-              </div>
-              <div className="contact-details">
-                <h4>Miles Tweedy</h4>
-                <p className="contact-role">Founder & CEO</p>
-                <a
-                  href="mailto:miles@twdyagency.com"
-                  className="contact-email"
-                >
-                  miles@twdyagency.com
-                </a>
-                <br />
-                <a
-                  href="https://www.instagram.com/milestweedy/"
-                  className="contact-social"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Miles Tweedy on Instagram"
-                >
-                  <InstagramIcon />
-                </a>
-              </div>
-            </div>
-
+          <div className="mx-auto mt-14 w-full max-w-2xl md:mt-16">
             <ContactForm />
           </div>
         </div>
