@@ -2,6 +2,7 @@ import { HeroVideo } from "@/components/home/hero-video";
 import { SpecializeSection } from "@/components/home/specialize-section";
 import { TaglineBlock } from "@/components/home/tagline-block";
 import { PictureRotator } from "@/components/home/picture-rotator";
+import { PhotoMarquee } from "@/components/home/photo-marquee";
 import { AboutSplit } from "@/components/home/about-split";
 import { AtTwdySection } from "@/components/home/at-twdy-section";
 import { ContactForm } from "@/components/home/contact-form";
@@ -18,6 +19,8 @@ export default function HomePage() {
       <PictureRotator />
 
       <AboutSplit />
+
+      <PhotoMarquee />
 
       <AtTwdySection />
 
@@ -44,7 +47,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="mx-auto mt-14 w-full max-w-2xl md:mt-16">
+          <div className="mx-auto mt-14 w-full max-w-4xl md:mt-16">
             <ContactForm />
           </div>
         </div>

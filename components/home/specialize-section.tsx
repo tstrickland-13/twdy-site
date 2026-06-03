@@ -1,6 +1,6 @@
 export function SpecializeSection() {
   return (
-    <section className="border-b border-[var(--color-border)] bg-[var(--color-surface)] py-24 md:py-32">
+    <section className="bg-black pb-24 pt-12 md:pb-32 md:pt-16">
       <div className="container">
         <p
           className="font-[family-name:var(--font-oswald)] mx-auto max-w-6xl text-center font-medium leading-[1.2] text-white"

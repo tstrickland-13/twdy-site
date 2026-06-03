@@ -14,6 +14,24 @@ type TeamMember = {
   initials: string;
 };
 
+const STORY_BLOCKS: { tag: string; heading: string; body: string }[] = [
+  {
+    tag: "The Origin",
+    heading: "Built On Culture",
+    body: "Born from a love of sports and culture in an era where athletes are creators, brands, and cultural voices.",
+  },
+  {
+    tag: "The Mission",
+    heading: "Real Partnerships",
+    body: "We connect athletes, creators, and brands through authentic alignment — never transactional.",
+  },
+  {
+    tag: "The Future",
+    heading: "Long-Term Growth",
+    body: "Helping talent build lasting brands and navigate the modern world of sports, media, and marketing.",
+  },
+];
+
 const TEAM: TeamMember[] = [
   {
     name: "Miles Tweedy",
@@ -81,30 +99,33 @@ export default function AboutPage() {
             Our <span className="italic text-[var(--color-accent)]">Story</span>
           </h2>
 
-          <div
-            className="mt-14 max-w-4xl text-lg leading-[1.85] text-[var(--color-text-secondary)] md:text-xl"
-            style={{ textIndent: "2.5rem" }}
-          >
-            <p>
-              TWDY Agency was built from a passion for sports, culture, and the
-              evolving world of athlete marketing. We saw firsthand how the
-              industry was changing — athletes were becoming more than just
-              competitors. They were becoming creators, brands, and influential
-              voices with the ability to shape culture both on and off the
-              field.
-            </p>
-            <p className="mt-10">
-              We created TWDY to help bridge the gap between athletes, creators,
-              and brands through authentic partnerships and long-term strategy.
-              In a world driven by content and connection, we believe the
-              strongest partnerships come from genuine alignment, storytelling,
-              and community.
-            </p>
-            <p className="mt-10">
-              Today, TWDY focuses on helping talent build meaningful brands,
-              create impactful opportunities, and navigate the modern landscape
-              of sports, media, and marketing.
-            </p>
+          <div className="mt-14 grid gap-5 md:mt-16 md:grid-cols-3 md:gap-6">
+            {STORY_BLOCKS.map((block, idx) => (
+              <div
+                key={block.heading}
+                className="group flex flex-col rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.05] to-white/[0.01] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-accent)]/50 hover:from-white/[0.07] md:p-8"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="font-[family-name:var(--font-oswald)] inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl border border-[var(--color-accent)]/40 bg-[var(--color-accent)]/10 text-base font-bold text-[var(--color-accent)]">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="h-px flex-1 bg-white/10 transition-colors duration-300 group-hover:bg-[var(--color-accent)]/30"
+                  />
+                </div>
+
+                <p className="font-[family-name:var(--font-oswald)] mt-7 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
+                  {block.tag}
+                </p>
+                <h3 className="font-[family-name:var(--font-oswald)] mt-2 text-xl font-bold uppercase leading-[1.1] tracking-[0.02em] text-white md:text-[1.4rem]">
+                  {block.heading}
+                </h3>
+                <p className="mt-3 text-[0.95rem] leading-[1.65] text-[var(--color-text-secondary)]">
+                  {block.body}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

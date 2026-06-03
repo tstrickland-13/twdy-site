@@ -41,7 +41,7 @@ export function AboutSplit() {
   return (
     <div>
       {ROWS.map((row, idx) => (
-        <SplitRowItem key={row.eyebrow} row={row} dark={idx % 2 === 0} />
+        <SplitRowItem key={row.eyebrow} row={row} dark={idx % 2 === 1} />
       ))}
     </div>
   );

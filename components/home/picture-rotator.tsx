@@ -89,9 +89,10 @@ export function PictureRotator() {
 
   return (
     <section className="relative overflow-hidden border-b border-[var(--color-border)] bg-black">
-      {/* Cinematic stage. Aspect chosen so portrait source photos retain
-          enough headroom — square-ish on mobile, 3:2 on tablet+. */}
-      <div className="relative aspect-[4/5] w-full sm:aspect-[5/4] md:aspect-[3/2]">
+      {/* Consistent landscape stage — matches the About-page hero sizing so
+          every rotating photo crops to the same wide frame. */}
+      <div className="container py-8 md:py-12">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] sm:aspect-[16/10] md:aspect-[16/9]">
         {ROTATING_IMAGES.map((img, i) => {
           const active = i === index;
           return (
@@ -155,6 +156,7 @@ export function PictureRotator() {
               />
             ))}
           </div>
+        </div>
         </div>
       </div>
     </section>

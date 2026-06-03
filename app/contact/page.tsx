@@ -72,7 +72,7 @@ export default function ContactPage() {
 
       <section className="border-t border-[var(--color-border)] bg-[var(--color-surface)] py-20 md:py-28">
         <div className="container">
-          <div className="mx-auto w-full max-w-xl">
+          <div className="mx-auto w-full max-w-3xl">
             <div className="text-center">
               <p className="font-[family-name:var(--font-oswald)] text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] md:text-sm">
                 Contact Form

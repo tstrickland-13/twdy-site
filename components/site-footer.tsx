@@ -67,10 +67,11 @@ export function SiteFooter() {
         </div>
       </section>
 
-      {/* Footer body */}
-      <div className="border-t border-[var(--color-border)] bg-black">
-        <div className="container py-10 md:py-12">
-          <div className="grid gap-8 md:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)_minmax(0,1fr)] md:gap-12">
+      {/* Footer body — condensed: logo + blurb on the left, Follow kept
+          vertical on the right, nav links horizontal across the bottom. */}
+      <div className="border-t-2 border-[var(--color-accent)] bg-black">
+        <div className="container py-8 md:py-10">
+          <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between md:gap-12">
             <div>
               <Link
                 href="/"
@@ -82,7 +83,7 @@ export function SiteFooter() {
                   alt="TWDY Agency"
                   width={160}
                   height={160}
-                  className="h-12 w-auto"
+                  className="h-11 w-auto"
                 />
               </Link>
               <p className="mt-4 max-w-sm text-sm leading-relaxed text-[var(--color-text-secondary)]">
@@ -92,29 +93,11 @@ export function SiteFooter() {
               </p>
             </div>
 
-            <div>
-              <p className="font-[family-name:var(--font-oswald)] text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
-                Explore
-              </p>
-              <ul className="mt-4 flex flex-col gap-2">
-                {FOOTER_NAV.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="font-[family-name:var(--font-oswald)] text-sm font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:text-[var(--color-accent)]"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
+            <div className="md:text-right">
               <p className="font-[family-name:var(--font-oswald)] text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
                 Follow
               </p>
-              <ul className="mt-4 flex flex-col gap-2">
+              <ul className="mt-4 flex flex-col gap-2 md:items-end">
                 {FOOTER_SOCIALS.map(({ label, href, Icon }) => (
                   <li key={label}>
                     <a
@@ -133,10 +116,26 @@ export function SiteFooter() {
               </ul>
             </div>
           </div>
+
+          {/* Horizontal nav links across the bottom */}
+          <nav className="mt-8 border-t border-[var(--color-border)] pt-6">
+            <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 md:justify-start">
+              {FOOTER_NAV.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="font-[family-name:var(--font-oswald)] text-sm font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:text-[var(--color-accent)]"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
 
-        <div className="border-t border-[var(--color-border)]">
-          <div className="container flex flex-col items-center justify-between gap-2 py-5 text-xs text-[var(--color-text-muted)] md:flex-row">
+        <div className="border-t border-[var(--color-border)] bg-[var(--color-accent)]">
+          <div className="container flex flex-col items-center justify-between gap-2 py-4 text-xs text-black/80 md:flex-row">
             <p>© {year} TWDY Agency LLC. All rights reserved.</p>
             <p className="text-center md:text-right">
               Empowering modern talent through authentic, story-driven
