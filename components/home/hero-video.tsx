@@ -7,10 +7,20 @@ const SEGMENTS = [
   { src: "/videos/logo_words_v2.mp4", type: "video/mp4" },
 ] as const;
 
+// Small beat before the hero video fades/plays in, so it doesn't slam in
+// the instant the page opens.
+const START_DELAY_MS = 900;
+
 export function HeroVideo() {
   const heroRef = useRef<HTMLElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [segment, setSegment] = useState(0);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const id = window.setTimeout(() => setReady(true), START_DELAY_MS);
+    return () => window.clearTimeout(id);
+  }, []);
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -50,15 +60,16 @@ export function HeroVideo() {
     };
   }, [segment]);
 
-  // Whenever the segment changes, force a reload + play of the new clip.
+  // After the initial delay (and on each segment change), reload + play the
+  // current clip. Playback is gated on `ready` so nothing fires immediately.
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    if (!video || !ready) return;
     video.load();
     void video.play().catch(() => {
       /* autoplay rejection is fine; user can scroll past */
     });
-  }, [segment]);
+  }, [segment, ready]);
 
   const current = SEGMENTS[segment];
 
@@ -66,9 +77,11 @@ export function HeroVideo() {
     <section className="hero" id="hero" ref={heroRef}>
       <video
         key={current.src}
-        className="hero-video"
+        className={[
+          "hero-video transition-opacity duration-1000 ease-out",
+          ready ? "opacity-100" : "opacity-0",
+        ].join(" ")}
         ref={videoRef}
-        autoPlay
         muted
         playsInline
         loop={false}

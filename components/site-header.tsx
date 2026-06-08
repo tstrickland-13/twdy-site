@@ -75,7 +75,7 @@ export function SiteHeader() {
           />
         </Link>
 
-        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 md:flex lg:gap-16">
+        <nav className="hidden items-center gap-10 md:flex md:pr-2 lg:gap-16 lg:pr-4">
           {NAV_ITEMS.map((item) => {
             const active =
               pathname === item.href || pathname.startsWith(`${item.href}/`);
