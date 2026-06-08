@@ -20,7 +20,7 @@ export default function NewsPage() {
             className="font-[family-name:var(--font-oswald)] mt-6 font-bold uppercase leading-[0.9] tracking-[0.01em] text-white"
             style={{ fontSize: "clamp(3rem, 11vw, 9rem)" }}
           >
-            New<span className="text-[var(--color-accent)]">s</span>
+            News
           </h1>
           <p className="mt-8 max-w-3xl text-lg leading-relaxed text-[var(--color-text-secondary)] md:text-xl">
             Campaigns, signings, and stories from inside TWDY.

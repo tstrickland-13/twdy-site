@@ -74,7 +74,7 @@ export default function ServicesPage() {
             className="font-[family-name:var(--font-oswald)] mt-6 font-bold uppercase leading-[0.9] tracking-[0.01em] text-white"
             style={{ fontSize: "clamp(3rem, 11vw, 9rem)" }}
           >
-            Service<span className="text-[var(--color-accent)]">s</span>
+            Services
           </h1>
           <p className="mt-8 max-w-3xl text-lg leading-relaxed text-[var(--color-text-secondary)] md:text-xl">
             We specialize in connecting emerging athletes, influencers, and
@@ -92,6 +92,7 @@ export default function ServicesPage() {
             service={service}
             flip={idx % 2 === 1}
             dark={idx % 2 === 0}
+            first={idx === 0}
           />
         ))}
       </div>
@@ -103,19 +104,31 @@ function ServiceBlock({
   service,
   flip,
   dark,
+  first = false,
 }: {
   service: Service;
   flip: boolean;
   dark: boolean;
+  first?: boolean;
 }) {
   return (
     <section
       className={[
-        "border-t border-[var(--color-border)] py-20 md:py-28",
-        dark ? "bg-[var(--color-surface)]" : "bg-black",
+        first ? "pb-20 pt-4 md:pb-28 md:pt-6" : "border-t border-[var(--color-border)] py-20 md:py-28",
+        dark ? "bg-black" : "bg-[var(--color-surface)]",
       ].join(" ")}
     >
       <div className="container">
+        {first && (
+          <div
+            aria-hidden="true"
+            className="mb-16 flex items-center justify-center gap-5 md:mb-20"
+          >
+            <span className="h-px w-full max-w-[160px] bg-gradient-to-r from-transparent to-[var(--color-accent)]/60" />
+            <span className="h-2.5 w-2.5 rotate-45 bg-[var(--color-accent)]" />
+            <span className="h-px w-full max-w-[160px] bg-gradient-to-l from-transparent to-[var(--color-accent)]/60" />
+          </div>
+        )}
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-14 lg:gap-20">
           <div
             className={[

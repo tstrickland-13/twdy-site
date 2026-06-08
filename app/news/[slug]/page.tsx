@@ -38,7 +38,7 @@ export default async function ArticlePage({
 
   return (
     <article>
-      <header className="bg-black pb-10 pt-32 md:pt-40">
+      <header className="bg-black pb-16 pt-32 md:pb-20 md:pt-40">
         <div className="container">
           <Link
             href="/news"
@@ -47,17 +47,17 @@ export default async function ArticlePage({
             <span aria-hidden="true">←</span> Back to News
           </Link>
 
-          <p className="font-[family-name:var(--font-oswald)] mt-10 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)]">
+          <p className="font-[family-name:var(--font-oswald)] mt-12 text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] md:mt-14">
             {article.date}
           </p>
           <h1
-            className="font-[family-name:var(--font-oswald)] mt-5 max-w-4xl font-bold uppercase leading-[0.98] tracking-tight text-white"
+            className="font-[family-name:var(--font-oswald)] mt-7 max-w-4xl font-bold uppercase leading-[1.02] tracking-tight text-white"
             style={{ fontSize: "clamp(2.25rem, 6vw, 4.5rem)" }}
           >
             {article.title}
           </h1>
 
-          <dl className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-2 text-sm">
+          <dl className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-2 text-sm md:mt-12">
             <div className="flex items-baseline gap-2">
               <dt className="font-[family-name:var(--font-oswald)] font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)]">
                 By
@@ -74,7 +74,7 @@ export default async function ArticlePage({
         </div>
       </header>
 
-      <div className="bg-black pb-4">
+      <div className="bg-black pb-8 md:pb-12">
         <div className="container">
           <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]">
             <Image
@@ -98,14 +98,15 @@ export default async function ArticlePage({
             {article.body.map((paragraph, i) => (
               <p
                 key={i}
-                className="text-lg leading-[1.85] text-[var(--color-text-secondary)] [&:not(:first-child)]:mt-7 md:text-xl"
+                className="text-lg leading-[1.95] text-[var(--color-text-secondary)] [&:not(:first-child)]:mt-9 md:text-xl"
+                style={{ textIndent: "2.5rem" }}
               >
                 {paragraph}
               </p>
             ))}
 
             {article.source && (
-              <p className="mt-12 border-t border-[var(--color-border)] pt-6 text-sm text-[var(--color-text-muted)]">
+              <p className="mt-14 border-t border-[var(--color-border)] pt-6 text-sm text-[var(--color-text-muted)]">
                 Originally published on{" "}
                 <a
                   href={article.source.href}
@@ -118,15 +119,6 @@ export default async function ArticlePage({
                 .
               </p>
             )}
-
-            <div className="mt-14">
-              <Link
-                href="/contact"
-                className="font-[family-name:var(--font-oswald)] inline-flex items-center gap-2 rounded-md border-2 border-[var(--color-accent)] bg-[var(--color-accent)] px-7 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-white transition-all hover:bg-transparent hover:text-[var(--color-accent)]"
-              >
-                Work With Us <span aria-hidden="true">→</span>
-              </Link>
-            </div>
           </div>
         </div>
       </div>

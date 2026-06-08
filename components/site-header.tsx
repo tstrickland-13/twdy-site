@@ -58,7 +58,7 @@ export function SiteHeader() {
         isHidden ? "-translate-y-full" : "translate-y-0",
       ].join(" ")}
     >
-      <div className="mx-auto flex w-full items-center justify-between px-6 py-4 md:px-12 md:py-5">
+      <div className="relative mx-auto flex w-full items-center justify-between px-6 py-4 md:px-12 md:py-5">
         <Link
           href="/"
           aria-label="TWDY Agency — Home"
@@ -75,7 +75,7 @@ export function SiteHeader() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex lg:gap-12">
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 md:flex lg:gap-16">
           {NAV_ITEMS.map((item) => {
             const active =
               pathname === item.href || pathname.startsWith(`${item.href}/`);

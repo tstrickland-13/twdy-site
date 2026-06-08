@@ -19,14 +19,14 @@ export default function TalentPage() {
     <>
       <section className="bg-black pb-16 pt-32 md:pt-40">
         <div className="container">
-          <p className="font-[family-name:var(--font-oswald)] text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] md:text-base">
+          <p className="font-[family-name:var(--font-oswald)] text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-text-secondary)] md:text-base">
             Our Roster
           </p>
           <h1
             className="font-[family-name:var(--font-oswald)] mt-6 font-bold uppercase leading-[0.9] tracking-[0.01em] text-white"
             style={{ fontSize: "clamp(3rem, 11vw, 9rem)" }}
           >
-            Tale<span className="text-[var(--color-accent)]">nt</span>
+            Talent
           </h1>
           <p className="mt-8 max-w-3xl text-lg leading-relaxed text-[var(--color-text-secondary)] md:text-xl">
             The creators, athletes, and personalities driving culture forward.
@@ -38,14 +38,14 @@ export default function TalentPage() {
         eyebrow="Section 01"
         title="Creators & Influencers"
         people={creators}
-        bgDark={false}
+        bgDark={true}
       />
 
       <RosterSection
         eyebrow="Section 02"
         title="Athletes"
         people={athletes}
-        bgDark={true}
+        bgDark={false}
       />
     </>
   );
@@ -70,7 +70,7 @@ function RosterSection({
       ].join(" ")}
     >
       <div className="container">
-        <p className="font-[family-name:var(--font-oswald)] text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] md:text-sm">
+        <p className="font-[family-name:var(--font-oswald)] text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-text-secondary)] md:text-sm">
           {eyebrow}
         </p>
         <h2
@@ -93,7 +93,7 @@ function RosterSection({
         <div className="mt-16 flex justify-center md:mt-20">
           <a
             href={ROSTER_EMAIL}
-            className="font-[family-name:var(--font-oswald)] inline-flex items-center gap-2 rounded-md border-2 border-[var(--color-accent)] bg-[var(--color-accent)] px-8 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-white transition-all hover:bg-transparent hover:text-[var(--color-accent)] md:text-base"
+            className="font-[family-name:var(--font-oswald)] inline-flex items-center gap-2 rounded-md border-2 border-white bg-white px-8 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-black transition-all hover:bg-transparent hover:text-white md:text-base"
           >
             Full Roster <span aria-hidden="true">→</span>
           </a>
@@ -152,7 +152,7 @@ function RosterCard({
               <span className="font-[family-name:var(--font-oswald)] font-semibold uppercase tracking-[0.2em] text-white">
                 {stat.label}
               </span>
-              <span className="font-[family-name:var(--font-oswald)] font-medium tracking-wide text-[var(--color-accent)]">
+              <span className="font-[family-name:var(--font-oswald)] font-medium tracking-wide text-[var(--color-text-secondary)]">
                 {stat.value}
               </span>
             </li>
@@ -165,13 +165,13 @@ function RosterCard({
             target="_blank"
             rel="noreferrer"
             aria-label={`${person.name} on Instagram`}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[var(--color-border)] bg-black text-white transition-colors hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)]"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[var(--color-border)] bg-black text-white transition-colors hover:border-white hover:bg-white hover:text-black"
           >
             <InstagramIcon className="h-4 w-4" />
           </a>
           <a
             href={emailHref}
-            className="font-[family-name:var(--font-oswald)] text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)] underline-offset-4 hover:underline"
+            className="font-[family-name:var(--font-oswald)] text-sm font-semibold uppercase tracking-[0.2em] text-white underline-offset-4 hover:underline"
           >
             Inquire →
           </a>
