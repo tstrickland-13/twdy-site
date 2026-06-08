@@ -75,7 +75,7 @@ export function SiteHeader() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-10 md:flex md:pr-2 lg:gap-16 lg:pr-4">
+        <nav className="hidden items-center gap-6 md:flex md:pr-4 lg:gap-10 lg:pr-8 xl:gap-14">
           {NAV_ITEMS.map((item) => {
             const active =
               pathname === item.href || pathname.startsWith(`${item.href}/`);
@@ -85,7 +85,7 @@ export function SiteHeader() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={[
-                  "font-[family-name:var(--font-oswald)] text-base font-semibold uppercase tracking-[0.22em] transition-colors md:text-lg",
+                  "font-[family-name:var(--font-oswald)] text-base font-semibold uppercase tracking-[0.22em] transition-colors lg:text-lg",
                   active
                     ? "text-[var(--color-accent)]"
                     : "text-white hover:text-[var(--color-accent)]",
