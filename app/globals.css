@@ -201,6 +201,7 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background-color: #000;
 }
 
 .hero-video {
