@@ -83,6 +83,7 @@ export function SiteFooter() {
                   alt="TWDY Agency"
                   width={180}
                   height={180}
+                  unoptimized
                   className="h-12 w-auto md:h-14"
                 />
               </Link>

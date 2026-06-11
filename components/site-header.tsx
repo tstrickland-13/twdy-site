@@ -71,6 +71,7 @@ export function SiteHeader() {
             width={180}
             height={180}
             priority
+            unoptimized
             className="h-12 w-auto md:h-14"
           />
         </Link>
