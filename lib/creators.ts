@@ -37,10 +37,10 @@ export const CREATORS: Creator[] = [
       "A multi-hyphenate creator blending music, fashion, and entrepreneurship. Tayvion's massive cross-platform audience makes him a standout for lifestyle, fashion, and culture-driven brands.",
     tags: ["Lifestyle", "Fashion", "Music", "Entertainment"],
     images: [
-      { src: "/images/maximo-1.jpg", alt: "Tayvion Power" },
+      { src: "/images/tayvion-1.png", alt: "Tayvion Power" },
       { src: "/images/maximo-2.png", alt: "Tayvion Power" },
     ],
-    imagePosition: "center top",
+    imagePosition: "center 30%",
     stats: [
       { label: "TikTok", value: "1.7M Followers" },
       { label: "Instagram", value: "94.3K Followers" },
@@ -58,9 +58,10 @@ export const CREATORS: Creator[] = [
       "A creator who blends sport, fashion, and culture with effortless style. His clean visual style, athletic credibility, and creative direction make him ideal for brands at the intersection of performance and lifestyle.",
     tags: ["Lifestyle", "Fashion", "Athlete", "Health & Wellness"],
     images: [
-      { src: "/images/maximo-1.jpg", alt: "Maximo Rivano" },
+      { src: "/images/maximo-runway.png", alt: "Maximo Rivano" },
       { src: "/images/maximo-2.png", alt: "Maximo Rivano" },
     ],
+    imagePosition: "center 20%",
     stats: [
       { label: "TikTok", value: "1M Followers" },
       { label: "Instagram", value: "106K Followers" },
@@ -77,10 +78,10 @@ export const CREATORS: Creator[] = [
       "A fast-rising streamer and content creator recognized for her personality, authenticity, and loyal community. Her mix of humor, authenticity, and on-camera presence makes her exceptional for brands in beauty, fitness, food, and lifestyle.",
     tags: ["Food & Beverage", "Fitness", "Beauty", "Broadcasting"],
     images: [
-      { src: "/images/aris-1.png", alt: "Aris" },
+      { src: "/images/aris-portrait.png", alt: "Aris" },
       { src: "/images/aris-2.png", alt: "Aris" },
     ],
-    imagePosition: "center top",
+    imagePosition: "center 15%",
     stats: [
       { label: "TikTok", value: "90.1K Followers" },
       { label: "Twitch", value: "37K Followers" },

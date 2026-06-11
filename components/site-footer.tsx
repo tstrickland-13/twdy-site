@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { InstagramIcon } from "@/components/icons/instagram-icon";
 import { LinkedinIcon } from "@/components/icons/linkedin-icon";
 import { TiktokIcon } from "@/components/icons/tiktok-icon";
@@ -75,9 +76,15 @@ export function SiteFooter() {
               <Link
                 href="/"
                 aria-label="TWDY Agency — Home"
-                className="font-[family-name:var(--font-oswald)] inline-flex items-center text-3xl font-bold uppercase tracking-[0.04em] text-black md:text-4xl"
+                className="inline-flex items-center overflow-hidden rounded-lg bg-[#1c1c1e]"
               >
-                TWDY
+                <Image
+                  src="/logo-twdy.png"
+                  alt="TWDY Agency"
+                  width={180}
+                  height={180}
+                  className="h-12 w-auto md:h-14"
+                />
               </Link>
               <p className="mt-4 max-w-sm text-sm leading-relaxed text-black/70">
                 A modern sports and creator marketing agency focused on

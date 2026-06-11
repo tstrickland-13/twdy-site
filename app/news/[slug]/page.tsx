@@ -76,13 +76,13 @@ export default async function ArticlePage({
 
       <div className="bg-black pb-8 md:pb-12">
         <div className="container">
-          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]">
+          <div className="relative aspect-[21/9] w-full overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]">
             <Image
               src={article.cover.src}
               alt={article.cover.alt}
               fill
               priority
-              sizes="(max-width: 768px) 100vw, 1200px"
+              sizes="100vw"
               quality={95}
               className="object-cover"
               style={{ objectPosition: article.cover.position ?? "center" }}
@@ -94,19 +94,28 @@ export default async function ArticlePage({
 
       <div className="border-b border-[var(--color-border)] bg-black py-16 md:py-24">
         <div className="container">
-          <div className="mx-auto max-w-3xl">
-            {article.body.map((paragraph, i) => (
-              <p
-                key={i}
-                className="text-lg leading-[1.95] text-[var(--color-text-secondary)] [&:not(:first-child)]:mt-9 md:text-xl"
-                style={{ textIndent: "2.5rem" }}
-              >
-                {paragraph}
-              </p>
-            ))}
+          <div className="mx-auto max-w-2xl">
+            {article.body.map((block, i) =>
+              block.type === "heading" ? (
+                <h2
+                  key={i}
+                  className="font-[family-name:var(--font-oswald)] text-center font-bold uppercase tracking-tight text-white [&:not(:first-child)]:mt-16"
+                  style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.25rem)" }}
+                >
+                  {block.text}
+                </h2>
+              ) : (
+                <p
+                  key={i}
+                  className="mt-7 text-lg leading-[1.85] text-[var(--color-text-secondary)] md:text-xl"
+                >
+                  {block.text}
+                </p>
+              )
+            )}
 
             {article.source && (
-              <p className="mt-14 border-t border-[var(--color-border)] pt-6 text-sm text-[var(--color-text-muted)]">
+              <p className="mt-14 border-t border-[var(--color-border)] pt-6 text-center text-sm text-[var(--color-text-muted)]">
                 Originally published on{" "}
                 <a
                   href={article.source.href}

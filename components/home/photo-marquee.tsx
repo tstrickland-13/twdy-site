@@ -3,21 +3,16 @@ import Image from "next/image";
 type MarqueeImage = { src: string; alt: string; position?: string };
 
 const ROW_TOP: MarqueeImage[] = [
-  { src: "/images/rotator/05-tampa-basketball.png", alt: "Tampa basketball", position: "center 20%" },
-  { src: "/images/rotator/01-jimmy-johns.png", alt: "Jimmy John's activation", position: "center 50%" },
-  { src: "/images/rotator/02-hidden-hills-drink.png", alt: "Hidden Hills campaign", position: "center 25%" },
-  { src: "/images/rotator/03-santoros-soccer.png", alt: "Santoro's soccer", position: "center 30%" },
-  { src: "/images/rotator/07-tampa-barber.png", alt: "Tampa creator portrait", position: "center 22%" },
-  { src: "/images/rotator/12-leather-jacket.png", alt: "Creator portrait", position: "center 18%" },
+  { src: "/images/campaigns/campaign-01-barber-basketball.png", alt: "Athlete in a red shirt holding a basketball in a barber chair", position: "center 20%" },
+  { src: "/images/campaigns/campaign-03-jimmy-johns.png", alt: "Creator outside a Jimmy John's storefront", position: "center" },
+  { src: "/images/campaigns/campaign-05-soccer-stanley.png", alt: "Soccer field campaign holding a pink Stanley tumbler", position: "center 20%" },
+  { src: "/images/campaigns/campaign-04-sunset-wall.png", alt: "Creator in a green hoodie in front of a sunset video wall", position: "center" },
 ];
 
 const ROW_BOTTOM: MarqueeImage[] = [
-  { src: "/images/rotator/06-hidden-hills-hoodie.png", alt: "Hidden Hills apparel", position: "center 45%" },
-  { src: "/images/rotator/08-soccer-stanley.png", alt: "Soccer training campaign", position: "center 35%" },
-  { src: "/images/rotator/13-puma-couch.png", alt: "Puma activation", position: "center 35%" },
-  { src: "/images/rotator/04-sunset-wall.png", alt: "Creator portrait", position: "center 22%" },
-  { src: "/images/rotator/09-pyo-panel.png", alt: "PYO panel", position: "center" },
-  { src: "/images/rotator/10-pyo-event.png", alt: "PYO event", position: "center" },
+  { src: "/images/campaigns/campaign-02-rte-hoodie.png", alt: "Creator in a black Run Through Everything hoodie", position: "center 25%" },
+  { src: "/images/campaigns/campaign-06-puma-couch.png", alt: "Creator on a couch with a Puma basketball and neon Puma sign", position: "center" },
+  { src: "/images/campaigns/campaign-07-pau-sweater.png", alt: "Man on a street with a blue PAU varsity sweater over his shoulder", position: "center 20%" },
 ];
 
 function MarqueeRow({

@@ -66,7 +66,7 @@ export function SiteHeader() {
           className="inline-flex items-center"
         >
           <Image
-            src="/logo-grey.png"
+            src="/logo-twdy.png"
             alt="TWDY Agency"
             width={180}
             height={180}
