@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ARTICLES, type Article } from "@/lib/articles";
+import { SectionDivider } from "@/components/section-divider";
 
 export const metadata: Metadata = {
   title: "News | TWDY Agency",
@@ -28,6 +29,8 @@ export default function NewsPage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       <div>
         {ARTICLES.map((article, idx) => (
           <ArticleRow
@@ -35,6 +38,7 @@ export default function NewsPage() {
             article={article}
             flip={idx % 2 === 1}
             dark={idx % 2 === 0}
+            first={idx === 0}
           />
         ))}
       </div>
@@ -46,10 +50,12 @@ function ArticleRow({
   article,
   flip,
   dark,
+  first = false,
 }: {
   article: Article;
   flip: boolean;
   dark: boolean;
+  first?: boolean;
 }) {
   const published = Boolean(article.body?.length);
   const href = `/news/${article.slug}`;
@@ -72,7 +78,7 @@ function ArticleRow({
   return (
     <section
       className={[
-        "border-t border-[var(--color-border)] py-20 md:py-28",
+        first ? "py-20 md:py-28" : "border-t border-[var(--color-border)] py-20 md:py-28",
         dark ? "bg-black" : "bg-[var(--color-surface)]",
       ].join(" ")}
     >

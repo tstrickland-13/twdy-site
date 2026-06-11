@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { SectionDivider } from "@/components/section-divider";
 
 export const metadata: Metadata = {
   title: "About | TWDY Agency",
@@ -69,6 +70,8 @@ export default function AboutPage() {
           </p>
         </div>
       </section>
+
+      <SectionDivider />
 
       <section className="bg-black py-12 md:py-16">
         <div className="container">
@@ -144,8 +147,8 @@ export default function AboutPage() {
           </h2>
 
           <div className="mt-20 grid gap-x-10 gap-y-14 sm:grid-cols-2 md:mt-28 md:gap-x-14 md:gap-y-20">
-            {TEAM.map((member, idx) => (
-              <TeamCard key={member.name} member={member} offset={idx === 1} />
+            {TEAM.map((member) => (
+              <TeamCard key={member.name} member={member} />
             ))}
           </div>
         </div>
@@ -156,15 +159,9 @@ export default function AboutPage() {
   );
 }
 
-function TeamCard({
-  member,
-  offset,
-}: {
-  member: TeamMember;
-  offset: boolean;
-}) {
+function TeamCard({ member }: { member: TeamMember }) {
   return (
-    <article className={offset ? "sm:mt-16" : ""}>
+    <article>
       <div className="group relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]">
         {member.image ? (
           <Image

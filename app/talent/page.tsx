@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { CREATORS, type Creator } from "@/lib/creators";
 import { InstagramIcon } from "@/components/icons/instagram-icon";
+import { SectionDivider } from "@/components/section-divider";
 
 export const metadata: Metadata = {
   title: "Talent | TWDY Agency",
@@ -34,11 +35,14 @@ export default function TalentPage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       <RosterSection
         eyebrow="Section 01"
         title="Creators & Influencers"
         people={creators}
         bgDark={true}
+        first
       />
 
       <RosterSection
@@ -56,16 +60,18 @@ function RosterSection({
   title,
   people,
   bgDark,
+  first = false,
 }: {
   eyebrow: string;
   title: string;
   people: Creator[];
   bgDark: boolean;
+  first?: boolean;
 }) {
   return (
     <section
       className={[
-        "border-t border-[var(--color-border)] py-20 md:py-28",
+        first ? "py-20 md:py-28" : "border-t border-[var(--color-border)] py-20 md:py-28",
         bgDark ? "bg-black" : "bg-[var(--color-surface)]",
       ].join(" ")}
     >
@@ -81,12 +87,8 @@ function RosterSection({
         </h2>
 
         <div className="mt-20 grid gap-x-10 gap-y-16 sm:grid-cols-2 md:mt-28 md:gap-x-12 md:gap-y-24 lg:grid-cols-2">
-          {people.map((person, idx) => (
-            <RosterCard
-              key={person.slug}
-              person={person}
-              offset={idx % 2 === 1}
-            />
+          {people.map((person) => (
+            <RosterCard key={person.slug} person={person} />
           ))}
         </div>
 
@@ -103,19 +105,13 @@ function RosterSection({
   );
 }
 
-function RosterCard({
-  person,
-  offset,
-}: {
-  person: Creator;
-  offset: boolean;
-}) {
+function RosterCard({ person }: { person: Creator }) {
   const emailHref = `mailto:info@twdyagency.com?subject=${encodeURIComponent(
     `Inquiry: ${person.name}`,
   )}`;
 
   return (
-    <article className={offset ? "sm:mt-12 md:mt-16" : ""}>
+    <article>
       <a
         href={emailHref}
         aria-label={`Email about ${person.name}`}

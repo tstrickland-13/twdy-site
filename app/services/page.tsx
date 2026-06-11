@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { SectionDivider } from "@/components/section-divider";
 
 export const metadata: Metadata = {
   title: "Services | TWDY Agency",
@@ -85,6 +86,8 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <SectionDivider />
+
       <div>
         {SERVICES.map((service, idx) => (
           <ServiceBlock
@@ -119,16 +122,6 @@ function ServiceBlock({
       ].join(" ")}
     >
       <div className="container">
-        {first && (
-          <div
-            aria-hidden="true"
-            className="mb-16 flex items-center justify-center gap-5 md:mb-20"
-          >
-            <span className="h-px w-full max-w-[160px] bg-gradient-to-r from-transparent to-[var(--color-accent)]/60" />
-            <span className="h-2.5 w-2.5 rotate-45 bg-[var(--color-accent)]" />
-            <span className="h-px w-full max-w-[160px] bg-gradient-to-l from-transparent to-[var(--color-accent)]/60" />
-          </div>
-        )}
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-14 lg:gap-20">
           <div
             className={[

@@ -186,8 +186,10 @@ body {
   padding: 0 24px;
 }
 
-section {
-  padding: 80px 0;
+@layer base {
+  section {
+    padding: 80px 0;
+  }
 }
 
 /* ---------- Hero ---------- */
@@ -1197,8 +1199,10 @@ section {
   .container {
     padding: 0 20px;
   }
-  section {
-    padding: 60px 0;
+  @layer base {
+    section {
+      padding: 60px 0;
+    }
   }
   .hero {
     min-height: 60vh;
@@ -1237,8 +1241,10 @@ section {
   .container {
     padding: 0 16px;
   }
-  section {
-    padding: 48px 0;
+  @layer base {
+    section {
+      padding: 48px 0;
+    }
   }
   .hero {
     min-height: 50vh;
