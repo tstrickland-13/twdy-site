@@ -135,7 +135,7 @@ export function SiteFooter() {
         </div>
 
         <div className="border-t border-black/15">
-          <div className="container flex flex-col items-center justify-between gap-2 py-4 text-xs text-black/70 md:flex-row">
+          <div className="container flex flex-col items-center justify-between gap-2 py-7 text-xs text-black/70 md:flex-row md:py-9">
             <p>© {year} TWDY Agency LLC. All rights reserved.</p>
             <p className="text-center md:text-right">
               Empowering modern talent through authentic, story-driven

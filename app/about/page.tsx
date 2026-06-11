@@ -99,7 +99,7 @@ export default function AboutPage() {
             Our <span className="italic text-[var(--color-accent)]">Story</span>
           </h2>
 
-          <div className="mt-14 grid gap-5 md:mt-16 md:grid-cols-3 md:gap-6">
+          <div className="mt-20 grid gap-5 md:mt-28 md:grid-cols-3 md:gap-6">
             {STORY_BLOCKS.map((block, idx) => (
               <div
                 key={block.heading}
@@ -143,7 +143,7 @@ export default function AboutPage() {
             <span className="italic text-[var(--color-accent)]">Team</span>
           </h2>
 
-          <div className="mt-14 grid gap-x-10 gap-y-14 sm:grid-cols-2 md:mt-20 md:gap-x-14 md:gap-y-20">
+          <div className="mt-20 grid gap-x-10 gap-y-14 sm:grid-cols-2 md:mt-28 md:gap-x-14 md:gap-y-20">
             {TEAM.map((member, idx) => (
               <TeamCard key={member.name} member={member} offset={idx === 1} />
             ))}

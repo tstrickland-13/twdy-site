@@ -80,7 +80,7 @@ function RosterSection({
           {title}
         </h2>
 
-        <div className="mt-14 grid gap-x-10 gap-y-16 sm:grid-cols-2 md:mt-20 md:gap-x-12 md:gap-y-24 lg:grid-cols-2">
+        <div className="mt-20 grid gap-x-10 gap-y-16 sm:grid-cols-2 md:mt-28 md:gap-x-12 md:gap-y-24 lg:grid-cols-2">
           {people.map((person, idx) => (
             <RosterCard
               key={person.slug}

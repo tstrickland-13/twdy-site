@@ -145,8 +145,8 @@ function ServiceBlock({
             </p>
 
             <h2
-              className="font-[family-name:var(--font-oswald)] mt-6 break-words font-bold uppercase leading-[0.95] tracking-[0.01em] text-white"
-              style={{ fontSize: "clamp(2.5rem, 7vw, 5.5rem)" }}
+              className="font-[family-name:var(--font-oswald)] mt-6 hyphens-none font-bold uppercase leading-[0.95] tracking-[-0.01em] text-white"
+              style={{ fontSize: "clamp(2.25rem, 5vw, 4rem)" }}
             >
               {service.title}
             </h2>

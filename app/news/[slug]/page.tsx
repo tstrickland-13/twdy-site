@@ -92,9 +92,9 @@ export default async function ArticlePage({
         </div>
       </div>
 
-      <div className="border-b border-[var(--color-border)] bg-black py-16 md:py-24">
-        <div className="container">
-          <div className="mx-auto max-w-2xl">
+      <div className="border-b border-[var(--color-border)] bg-black pb-32 pt-16 md:pb-44 md:pt-24">
+        <div className="container flex justify-center">
+          <div className="w-full max-w-2xl">
             {article.body.map((block, i) =>
               block.type === "heading" ? (
                 <h2
@@ -107,7 +107,7 @@ export default async function ArticlePage({
               ) : (
                 <p
                   key={i}
-                  className="mt-7 text-lg leading-[1.85] text-[var(--color-text-secondary)] md:text-xl"
+                  className="mt-7 indent-8 text-left text-lg leading-[1.85] text-[var(--color-text-secondary)] md:text-xl"
                 >
                   {block.text}
                 </p>
