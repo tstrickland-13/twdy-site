@@ -76,7 +76,7 @@ export default async function ArticlePage({
 
       <div className="bg-black pb-8 md:pb-12">
         <div className="container">
-          <div className="relative aspect-[21/9] w-full overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]">
+          <div className="relative aspect-[21/9] w-full max-w-5xl overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]">
             <Image
               src={article.cover.src}
               alt={article.cover.alt}
@@ -93,13 +93,13 @@ export default async function ArticlePage({
       </div>
 
       <div className="border-b border-[var(--color-border)] bg-black pb-32 pt-16 md:pb-44 md:pt-24">
-        <div className="container flex justify-center">
-          <div className="w-full max-w-2xl">
+        <div className="container">
+          <div className="w-full max-w-3xl">
             {article.body.map((block, i) =>
               block.type === "heading" ? (
                 <h2
                   key={i}
-                  className="font-[family-name:var(--font-oswald)] text-center font-bold uppercase tracking-tight text-white [&:not(:first-child)]:mt-16"
+                  className="font-[family-name:var(--font-oswald)] text-left font-bold uppercase tracking-tight text-white [&:not(:first-child)]:mt-16"
                   style={{ fontSize: "clamp(1.5rem, 3.5vw, 2.25rem)" }}
                 >
                   {block.text}
@@ -115,7 +115,7 @@ export default async function ArticlePage({
             )}
 
             {article.source && (
-              <p className="mt-14 border-t border-[var(--color-border)] pt-6 text-center text-sm text-[var(--color-text-muted)]">
+              <p className="mt-14 border-t border-[var(--color-border)] pt-6 text-left text-sm text-[var(--color-text-muted)]">
                 Originally published on{" "}
                 <a
                   href={article.source.href}

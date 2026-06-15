@@ -33,6 +33,12 @@
     padding: 0;
     box-sizing: border-box;
   }
+
+  /* Prevent the browser's native draggable "ghost" image on every img. */
+  img {
+    -webkit-user-drag: none;
+    user-select: none;
+  }
 }
 
 html {

@@ -111,6 +111,8 @@ export function PictureRotator() {
                 priority={i === 0}
                 sizes="100vw"
                 quality={95}
+                draggable={false}
+                onDragStart={(e) => e.preventDefault()}
                 className={[
                   "object-cover transition-transform duration-[6000ms] ease-out",
                   active ? "scale-[1.04]" : "scale-100",
