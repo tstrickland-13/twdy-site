@@ -95,7 +95,7 @@ function RosterSection({
         <div className="mt-16 flex justify-center md:mt-20">
           <a
             href={ROSTER_EMAIL}
-            className="font-[family-name:var(--font-oswald)] inline-flex items-center gap-2 rounded-md border-2 border-white bg-white px-8 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-black transition-all hover:bg-transparent hover:text-white md:text-base"
+            className="font-[family-name:var(--font-oswald)] inline-flex items-center gap-2 rounded-md border-2 border-[var(--color-accent)] bg-[var(--color-accent)] px-8 py-4 text-sm font-semibold uppercase tracking-[0.22em] text-black transition-all hover:bg-transparent hover:text-[var(--color-accent)] md:text-base"
           >
             Full Roster <span aria-hidden="true">→</span>
           </a>

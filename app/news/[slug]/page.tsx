@@ -2,7 +2,41 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { type ReactNode } from "react";
 import { ARTICLES, getArticle } from "@/lib/articles";
+import { SectionDivider } from "@/components/section-divider";
+import { BackToTop } from "@/components/back-to-top";
+
+// Renders inline markdown-style links — [label](https://url) — inside body
+// text as accent-colored anchors. Plain text passes through unchanged.
+function renderInline(text: string): ReactNode[] {
+  const parts: ReactNode[] = [];
+  const regex = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let lastIndex = 0;
+  let key = 0;
+  let match: RegExpExecArray | null;
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    parts.push(
+      <a
+        key={key++}
+        href={match[2]}
+        target="_blank"
+        rel="noreferrer"
+        className="text-[var(--color-accent)] underline-offset-4 hover:underline"
+      >
+        {match[1]}
+      </a>
+    );
+    lastIndex = regex.lastIndex;
+  }
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+  return parts;
+}
 
 export function generateStaticParams() {
   return ARTICLES.filter((a) => a.body?.length).map((a) => ({
@@ -40,6 +74,7 @@ export default async function ArticlePage({
     <article>
       <header className="bg-black pb-16 pt-32 md:pb-20 md:pt-40">
         <div className="container">
+          <div className="mx-auto w-full max-w-4xl">
           <Link
             href="/news"
             className="font-[family-name:var(--font-oswald)] inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-accent)]"
@@ -51,7 +86,7 @@ export default async function ArticlePage({
             {article.date}
           </p>
           <h1
-            className="font-[family-name:var(--font-oswald)] mt-7 max-w-4xl font-bold uppercase leading-[1.02] tracking-tight text-white"
+            className="font-[family-name:var(--font-oswald)] mt-7 font-bold uppercase leading-[1.02] tracking-tight text-white"
             style={{ fontSize: "clamp(2.25rem, 6vw, 4.5rem)" }}
           >
             {article.title}
@@ -71,12 +106,13 @@ export default async function ArticlePage({
               </dd>
             </div>
           </dl>
+          </div>
         </div>
       </header>
 
-      <div className="bg-black pb-8 md:pb-12">
+      <div className="bg-black">
         <div className="container">
-          <div className="relative aspect-[21/9] w-full max-w-5xl overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]">
+          <div className="relative mx-auto aspect-[21/9] w-full max-w-4xl overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]">
             <Image
               src={article.cover.src}
               alt={article.cover.alt}
@@ -92,9 +128,11 @@ export default async function ArticlePage({
         </div>
       </div>
 
-      <div className="border-b border-[var(--color-border)] bg-black pb-32 pt-16 md:pb-44 md:pt-24">
+      <SectionDivider />
+
+      <div className="border-b border-[var(--color-border)] bg-black pb-32 pt-2 md:pb-44 md:pt-4">
         <div className="container">
-          <div className="w-full max-w-3xl">
+          <div className="mx-auto w-full max-w-4xl">
             {article.body.map((block, i) =>
               block.type === "heading" ? (
                 <h2
@@ -107,9 +145,9 @@ export default async function ArticlePage({
               ) : (
                 <p
                   key={i}
-                  className="mt-7 indent-8 text-left text-lg leading-[1.85] text-[var(--color-text-secondary)] md:text-xl"
+                  className="mt-7 text-left text-lg leading-[1.85] text-[var(--color-text-secondary)] md:text-xl"
                 >
-                  {block.text}
+                  {renderInline(block.text)}
                 </p>
               )
             )}
@@ -128,6 +166,8 @@ export default async function ArticlePage({
                 .
               </p>
             )}
+
+            <BackToTop />
           </div>
         </div>
       </div>
