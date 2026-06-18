@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 
 const SEGMENTS = [
   { src: "/videos/orange_Logo.mp4", type: "video/mp4" },
@@ -65,6 +65,16 @@ export function HeroVideo() {
 
   const current = SEGMENTS[segment];
 
+  const handleSkip = (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const target = document.getElementById("main-content");
+    if (!target) return;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Move focus to the content so keyboard / screen-reader users continue
+    // from there instead of being stranded on the hero.
+    target.focus({ preventScroll: true });
+  };
+
   return (
     <section className="hero" id="hero" ref={heroRef}>
       {ready && (
@@ -82,6 +92,29 @@ export function HeroVideo() {
         </video>
       )}
       <div className="hero-overlay" />
+
+      <a
+        href="#main-content"
+        onClick={handleSkip}
+        aria-label="Skip video and scroll to main content"
+        className="hero-scroll-indicator group absolute bottom-7 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 rounded-full px-4 py-2 text-white/75 transition-colors hover:text-white focus-visible:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--color-accent)] md:bottom-9"
+      >
+        <span className="font-[family-name:var(--font-oswald)] text-[0.7rem] font-semibold uppercase tracking-[0.3em] md:text-xs">
+          Scroll
+        </span>
+        <svg
+          className="hero-scroll-chevron h-5 w-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </a>
     </section>
   );
 }

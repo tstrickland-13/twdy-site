@@ -252,6 +252,36 @@ body {
   }
 }
 
+/* Hero scroll-to-content indicator: gentle bounce to signal there's more
+   below, plus a fade-in so it appears with the hero. */
+@keyframes hero-chevron-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+.hero-scroll-indicator {
+  animation: hero-fade-in 1200ms ease-out both;
+}
+
+.hero-scroll-chevron {
+  animation: hero-chevron-bounce 1800ms ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-indicator {
+    animation: none;
+    opacity: 1;
+  }
+  .hero-scroll-chevron {
+    animation: none;
+  }
+}
+
 /* ---------- Tagline (under hero) ---------- */
 .tagline-section {
   padding: 96px 0 80px;

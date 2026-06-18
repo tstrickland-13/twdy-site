@@ -33,6 +33,16 @@ export function SiteHeader() {
         const current = window.scrollY;
         const delta = current - lastScrollY.current;
 
+        // On mobile (< 768px) keep the header visible so the hamburger
+        // is always tappable; only auto-hide on desktop.
+        const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+        if (!isDesktop) {
+          setHidden(false);
+          lastScrollY.current = current;
+          ticking.current = false;
+          return;
+        }
+
         if (current < REVEAL_AT_TOP) {
           setHidden(false);
         } else if (Math.abs(delta) > SCROLL_THRESHOLD) {
@@ -58,7 +68,10 @@ export function SiteHeader() {
         isHidden ? "-translate-y-full" : "translate-y-0",
       ].join(" ")}
     >
-      <div className="relative mx-auto flex w-full items-center justify-between px-6 py-4 md:px-12 md:py-5">
+      <div
+        className="relative mx-auto flex w-full items-center justify-between px-6 py-4 md:px-12 md:py-5"
+        style={{ paddingTop: "max(1rem, env(safe-area-inset-top))" }}
+      >
         <Link
           href="/"
           aria-label="TWDY Agency — Home"

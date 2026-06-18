@@ -105,17 +105,12 @@ function SplitRowItem({ row, dark }: { row: SplitRow; dark: boolean }) {
     >
       <div className="container">
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-12 lg:gap-20">
-          {row.imageOnRight ? (
-            <>
-              <div className="md:order-1">{textBlock}</div>
-              <div className="md:order-2">{imageBlock}</div>
-            </>
-          ) : (
-            <>
-              <div className="md:order-1">{imageBlock}</div>
-              <div className="md:order-2">{textBlock}</div>
-            </>
-          )}
+          <div className={row.imageOnRight ? "md:order-2" : "md:order-1"}>
+            {imageBlock}
+          </div>
+          <div className={row.imageOnRight ? "md:order-1" : "md:order-2"}>
+            {textBlock}
+          </div>
         </div>
       </div>
     </section>

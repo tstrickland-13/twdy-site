@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Oswald } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
@@ -19,6 +19,13 @@ export const metadata: Metadata = {
     icon: "/logo-white.png",
     apple: "/logo-white.png",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  // Let the page extend under the iOS safe areas so the fixed header can paint
+  // its background up into the notch / status-bar region (no see-through strip).
+  viewportFit: "cover",
 };
 
 export default function RootLayout({

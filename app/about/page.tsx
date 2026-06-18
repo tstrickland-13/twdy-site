@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { SectionDivider } from "@/components/section-divider";
+import { LinkedinIcon } from "@/components/icons/linkedin-icon";
 
 export const metadata: Metadata = {
   title: "About | TWDY Agency",
@@ -13,6 +14,7 @@ type TeamMember = {
   role: string;
   image?: { src: string; position?: string };
   initials: string;
+  linkedin?: string;
 };
 
 const STORY_BLOCKS: { tag: string; heading: string; body: string }[] = [
@@ -24,7 +26,7 @@ const STORY_BLOCKS: { tag: string; heading: string; body: string }[] = [
   {
     tag: "The Mission",
     heading: "Real Partnerships",
-    body: "We connect athletes, creators, and brands through authentic alignment — never transactional.",
+    body: "We connect athletes, creators, and brands where culture, credibility, and audience trust actually intersect.",
   },
   {
     tag: "The Future",
@@ -39,11 +41,19 @@ const TEAM: TeamMember[] = [
     role: "Founder & CEO",
     image: { src: "/images/miles.png", position: "center top" },
     initials: "MT",
+    linkedin: "https://www.linkedin.com/in/miles-tweedy-698aa7258/",
   },
   {
-    name: "Luke Maluska",
-    role: "Athlete & Influencer Marketing Coordinator",
-    initials: "LM",
+    name: "Luke Haluska",
+    role: "Influencer Marketing Coordinator",
+    initials: "LH",
+    linkedin: "https://www.linkedin.com/in/luke-haluska-8a1023299/",
+  },
+  {
+    name: "Max Butterfass",
+    role: "Influencer Marketing Coordinator",
+    initials: "MB",
+    linkedin: "https://www.linkedin.com/in/maxbutterfass/",
   },
 ];
 
@@ -196,12 +206,24 @@ function TeamCard({ member }: { member: TeamMember }) {
             {member.role}
           </p>
         </div>
-        <span
-          aria-hidden="true"
-          className="font-[family-name:var(--font-oswald)] flex-shrink-0 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-accent)] md:text-sm"
-        >
-          {member.initials}
-        </span>
+        {member.linkedin ? (
+          <a
+            href={member.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${member.name} on LinkedIn`}
+            className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-md border border-[var(--color-border)] bg-[var(--color-surface)] text-white transition-colors hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)]"
+          >
+            <LinkedinIcon className="h-5 w-5" />
+          </a>
+        ) : (
+          <span
+            aria-hidden="true"
+            className="font-[family-name:var(--font-oswald)] flex-shrink-0 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-accent)] md:text-sm"
+          >
+            {member.initials}
+          </span>
+        )}
       </div>
     </article>
   );

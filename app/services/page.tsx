@@ -21,7 +21,7 @@ const SERVICES: Service[] = [
     number: "01",
     title: "Partnerships",
     description:
-      "We build long-term collaborations between brands and creators that go beyond the campaign — partnerships rooted in shared values, audience alignment, and cultural relevance.",
+      "We build long-term collaborations between brands and creators that go beyond the campaign, forging partnerships rooted in shared values, audience alignment, and cultural relevance.",
     tags: ["Brand Partnerships", "NIL Deals", "Campaign Activations"],
     image: {
       src: "/images/maximo-1.jpg",
@@ -45,7 +45,7 @@ const SERVICES: Service[] = [
     number: "03",
     title: "Marketing",
     description:
-      "Creative-led marketing that connects brands with the right voices. We design campaigns built around story and substance — not just impressions.",
+      "Creative-led marketing that connects brands with the right voices. We design campaigns built around story and substance, not just impressions.",
     tags: [
       "Influencer Marketing",
       "Social Media Strategy",
@@ -57,7 +57,7 @@ const SERVICES: Service[] = [
     number: "04",
     title: "Growth",
     description:
-      "We help creators and brands scale with strategy, content consulting, and community building — turning audience into ecosystem.",
+      "We help creators and brands scale with strategy, content consulting, and community building, turning audience into ecosystem.",
     tags: ["Content Consulting", "Community Building", "Partnership Outreach"],
     image: { src: "/images/aris-2.png", alt: "Growth", position: "center" },
   },

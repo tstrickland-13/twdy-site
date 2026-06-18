@@ -88,11 +88,10 @@ export function PictureRotator() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden border-b border-[var(--color-border)] bg-black">
-      {/* Consistent landscape stage — matches the About-page hero sizing so
-          every rotating photo crops to the same wide frame. */}
-      <div className="container py-8 md:py-12">
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] sm:aspect-[16/10] md:aspect-[16/9]">
+    <section className="relative overflow-hidden bg-black">
+      {/* Full-bleed landscape stage — every rotating photo crops to the same
+          wide frame, edge to edge. */}
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[var(--color-surface)] sm:aspect-[16/10] md:aspect-[16/9]">
         {ROTATING_IMAGES.map((img, i) => {
           const active = i === index;
           return (
@@ -122,44 +121,6 @@ export function PictureRotator() {
             </div>
           );
         })}
-
-        {/* Vignette + gradient blends with surrounding sections */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/40" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black to-transparent" />
-
-        {/* Counter + dots */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-8 z-10 flex flex-col items-center gap-4">
-          <div className="font-[family-name:var(--font-oswald)] flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.3em] text-white/90 md:text-base">
-            <span className="text-[var(--color-accent)]">
-              {String(index + 1).padStart(2, "0")}
-            </span>
-            <span className="block h-px w-8 bg-white/40" />
-            <span>{String(ROTATING_IMAGES.length).padStart(2, "0")}</span>
-          </div>
-          <div
-            className="pointer-events-auto flex items-center justify-center gap-2"
-            role="tablist"
-            aria-label="Featured photos"
-          >
-            {ROTATING_IMAGES.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                role="tab"
-                aria-selected={i === index}
-                aria-label={`Show photo ${i + 1}`}
-                onClick={() => setIndex(i)}
-                className={[
-                  "h-1 rounded-full transition-all duration-300",
-                  i === index
-                    ? "w-8 bg-[var(--color-accent)]"
-                    : "w-1 bg-white/40 hover:bg-white/70",
-                ].join(" ")}
-              />
-            ))}
-          </div>
-        </div>
-        </div>
       </div>
     </section>
   );

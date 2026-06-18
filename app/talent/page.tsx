@@ -20,7 +20,7 @@ export default function TalentPage() {
     <>
       <section className="bg-black pb-16 pt-32 md:pt-40">
         <div className="container">
-          <p className="font-[family-name:var(--font-oswald)] text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-text-secondary)] md:text-base">
+          <p className="font-[family-name:var(--font-oswald)] text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] md:text-base">
             Our Roster
           </p>
           <h1
@@ -76,7 +76,7 @@ function RosterSection({
       ].join(" ")}
     >
       <div className="container">
-        <p className="font-[family-name:var(--font-oswald)] text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-text-secondary)] md:text-sm">
+        <p className="font-[family-name:var(--font-oswald)] text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] md:text-sm">
           {eyebrow}
         </p>
         <h2

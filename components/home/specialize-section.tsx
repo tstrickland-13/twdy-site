@@ -1,6 +1,10 @@
 export function SpecializeSection() {
   return (
-    <section className="bg-black pb-24 pt-12 md:pb-32 md:pt-16">
+    <section
+      id="main-content"
+      tabIndex={-1}
+      className="scroll-mt-24 bg-black pb-24 pt-12 outline-none md:scroll-mt-28 md:pb-32 md:pt-16"
+    >
       <div className="container">
         <p
           className="font-[family-name:var(--font-oswald)] mx-auto max-w-6xl text-center font-medium leading-[1.2] text-white"

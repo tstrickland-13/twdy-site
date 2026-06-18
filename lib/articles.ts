@@ -18,6 +18,52 @@ export type Article = {
 };
 
 export const ARTICLES: Article[] = [
+  // Cover image is a placeholder — replace with Miles's final image
+  {
+    slug: "smart-brands-micro-influencers",
+    title:
+      "Why Smart Brands Are Ditching Celebrities for Micro and Nano Influencers in 2026",
+    author: "Miles Tweedy",
+    date: "May 27, 2026",
+    readMin: 5,
+    cover: {
+      src: "/images/rotator/12-leather-jacket.png",
+      alt: "Creator-led brand campaign",
+      position: "center 18%",
+    },
+    excerpt:
+      "More followers doesn't mean more sales. The brands quietly outperforming everyone are building rosters of micro and nano influencers with real, engaged communities — at a fraction of the cost of celebrity deals.",
+    body: [
+      {
+        type: "paragraph",
+        text: "Let's be honest, more followers does not mean more sales. Brands are figuring this out, and the ones who already have are quietly outperforming everyone else. The idea that you need a celebrity with millions of followers to move product is quickly becoming outdated. What's actually working right now is smaller creators with communities they've built brick by brick, who actually believe what they promote. The numbers tell the story, according to Digital Applied, micro-influencers deliver 60% higher engagement rates than mega-influencers at roughly 1/10th the cost. Influee reports nano influencers are hitting up to 11.9% engagement on TikTok compared to under 1% for macro accounts. For brands still chasing reach over connection, they won't see the same return they would with micro or nano influencers.",
+      },
+      {
+        type: "paragraph",
+        text: "A creator with 8,000 skincare followers has spent months, maybe years, building a real relationship with those people. When they recommend something, their audience listens because it feels like advice from a friend, not a sponsored post. This drives action, leading to sales. Nano influencer performance data shows nano creators convert 7% of engagements into actual sales compared to just 3% for macro-influencers. That's more than double the conversion for a fraction of the price.",
+      },
+      {
+        type: "paragraph",
+        text: "And the cost difference is significant. Markhub24 found brands pay approximately 65% more per meaningful interaction through macro partnerships. When you're trying to justify every dollar in your marketing budget, that math matters.",
+      },
+      {
+        type: "paragraph",
+        text: "The brands winning right now are not putting all their money into one big name and hoping for the best. Digital Applied highlights that the smarter approach is building a roster of 20 to 50 micro and nano influencers posting consistently over months. That steady, ongoing presence creates social proof that compounds over time and outperforms one-off celebrity campaigns every time. And for brands working with smaller budgets, here's something worth knowing. Nano influencer performance data shows that gifted product collaborations generate 12.9% higher engagement and 215% more views than paid partnerships. Meaning you don't always need to spend big to get results. Sometimes getting the right product in the right hands is enough.",
+      },
+      {
+        type: "paragraph",
+        text: "Repeat partnerships are also on the rise. Influencer Advisory reports that brands renewing with the same creator multiple times per quarter is up roughly 40% year-over-year. That makes sense, because the creator that built its community is also helping build that brand. The more a creator talks about your brand, the more natural it feels to their audience. People can tell when it's genuine and when someone just cashed a check. One off campaigns don't show the same authenticity to a content creator's community, it's easy to spot a money grab.",
+      },
+      {
+        type: "paragraph",
+        text: "This shift has been building for a while but 2026 is when it's becoming the norm. Influee reports 71% of brands are increasing their creator program budgets, with nearly two-thirds pulling money away from traditional channels. And with over 51.5% of U.S. creators reporting income growth year-over-year per the Brand Deals Report 2026, the creator economy is only getting bigger and more professional.",
+      },
+      {
+        type: "paragraph",
+        text: "The brands building real creator relationships now, the ones focused on authenticity over audience size, are the ones who will be ahead of the curve. If your strategy still starts and ends with follower count, it might be time to rethink your approach.",
+      },
+    ],
+  },
   {
     slug: "wnba-rising-stars-brand-power",
     title:
