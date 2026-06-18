@@ -45,7 +45,7 @@ const TEAM: TeamMember[] = [
   },
   {
     name: "Luke Haluska",
-    role: "Influencer Marketing Coordinator",
+    role: "Athlete & Influencer Marketing Coordinator",
     initials: "LH",
     linkedin: "https://www.linkedin.com/in/luke-haluska-8a1023299/",
   },

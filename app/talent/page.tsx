@@ -35,7 +35,7 @@ export default function TalentPage() {
         </div>
       </section>
 
-      <SectionDivider />
+      <SectionDivider compact />
 
       <RosterSection
         eyebrow="Section 01"
