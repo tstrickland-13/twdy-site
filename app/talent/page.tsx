@@ -5,7 +5,7 @@ import { InstagramIcon } from "@/components/icons/instagram-icon";
 import { SectionDivider } from "@/components/section-divider";
 
 export const metadata: Metadata = {
-  title: "Talent | TWDY Agency",
+  title: "Talent",
   description:
     "Meet the creators, influencers, and athletes represented by TWDY Agency.",
 };

@@ -69,7 +69,7 @@ export function SiteHeader() {
       ].join(" ")}
     >
       <div
-        className="relative mx-auto flex w-full items-center justify-between px-6 py-4 md:px-12 md:py-5"
+        className="relative mx-auto flex w-full items-center justify-between py-4 pl-[max(1.5rem,env(safe-area-inset-left))] pr-[max(1.5rem,env(safe-area-inset-right))] md:py-5 md:pl-[max(3rem,env(safe-area-inset-left))] md:pr-[max(3rem,env(safe-area-inset-right))]"
         style={{ paddingTop: "max(1rem, env(safe-area-inset-top))" }}
       >
         <Link
@@ -149,7 +149,7 @@ export function SiteHeader() {
 
       {open && (
         <nav className="border-t border-white/10 bg-black md:hidden">
-          <ul className="flex flex-col items-end px-6 py-3">
+          <ul className="flex flex-col items-end py-3 pl-[max(1.5rem,env(safe-area-inset-left))] pr-[max(1.5rem,env(safe-area-inset-right))]">
             {NAV_ITEMS.map((item) => {
               const active =
                 pathname === item.href || pathname.startsWith(`${item.href}/`);

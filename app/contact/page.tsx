@@ -5,7 +5,7 @@ import { LinkedinIcon } from "@/components/icons/linkedin-icon";
 import { TiktokIcon } from "@/components/icons/tiktok-icon";
 
 export const metadata: Metadata = {
-  title: "Contact | TWDY Agency",
+  title: "Contact",
   description: "Get in touch with TWDY Agency to start a partnership.",
 };
 

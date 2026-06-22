@@ -48,6 +48,9 @@ html {
      through. */
   scroll-snap-type: y proximity;
   scroll-padding-top: 80px;
+  /* Stop iOS Safari from auto-inflating text on orientation change. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 /* Sections become subtle snap points. `scroll-snap-stop: normal` keeps each
@@ -183,13 +186,22 @@ body {
   line-height: 1.7;
   letter-spacing: 0.01em;
   min-height: 100vh;
+  /* Dynamic viewport height tracks mobile browser chrome (address bar). */
+  min-height: 100dvh;
+  /* Guard against any element causing horizontal scroll on small viewports.
+     `clip` does not create a scroll container, so vertical scroll-snap on
+     <html> is unaffected. */
+  overflow-x: clip;
 }
 
 /* ---------- Layout ---------- */
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  /* Honor the display's safe-area insets (rounded corners in landscape) while
+     keeping the normal 24px gutter as the minimum. */
+  padding: 0 max(24px, env(safe-area-inset-right)) 0
+    max(24px, env(safe-area-inset-left));
 }
 
 @layer base {
@@ -202,7 +214,10 @@ body {
 .hero {
   position: relative;
   width: 100%;
+  /* `vh` fallback first, then small-viewport-height so the hero never gets
+     clipped behind the mobile address bar (no jump on Safari/Chrome/Firefox). */
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1234,7 +1249,8 @@ body {
 
 @media (max-width: 768px) {
   .container {
-    padding: 0 20px;
+    padding: 0 max(20px, env(safe-area-inset-right)) 0
+      max(20px, env(safe-area-inset-left));
   }
   @layer base {
     section {
@@ -1243,6 +1259,7 @@ body {
   }
   .hero {
     min-height: 60vh;
+    min-height: 60svh;
   }
   .creators-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1276,7 +1293,8 @@ body {
 
 @media (max-width: 480px) {
   .container {
-    padding: 0 16px;
+    padding: 0 max(16px, env(safe-area-inset-right)) 0
+      max(16px, env(safe-area-inset-left));
   }
   @layer base {
     section {
@@ -1285,6 +1303,7 @@ body {
   }
   .hero {
     min-height: 50vh;
+    min-height: 50svh;
   }
   .creators-grid {
     grid-template-columns: 1fr;

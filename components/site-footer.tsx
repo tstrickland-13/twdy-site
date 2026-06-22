@@ -70,7 +70,7 @@ export function SiteFooter() {
           (no divider, no logo): bigger centered nav up top, socials centered
           beneath, and a single centered copyright line. */}
       <div className="bg-[var(--color-accent)]">
-        <div className="container py-10 md:py-12">
+        <div className="container pt-10 pb-[max(2.5rem,env(safe-area-inset-bottom))] md:pt-12 md:pb-[max(3rem,env(safe-area-inset-bottom))]">
           {/* Centered, spread-out nav links — larger and pulled toward the
               middle/top of the footer body. */}
           <nav>

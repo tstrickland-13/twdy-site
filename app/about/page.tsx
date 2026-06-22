@@ -4,7 +4,7 @@ import { SectionDivider } from "@/components/section-divider";
 import { LinkedinIcon } from "@/components/icons/linkedin-icon";
 
 export const metadata: Metadata = {
-  title: "About | TWDY Agency",
+  title: "About",
   description:
     "TWDY Agency bridges brands and creators through authentic, story-driven partnerships.",
 };
@@ -46,12 +46,14 @@ const TEAM: TeamMember[] = [
   {
     name: "Luke Haluska",
     role: "Athlete & Influencer Marketing Coordinator",
+    image: { src: "/images/luke.png", position: "center top" },
     initials: "LH",
     linkedin: "https://www.linkedin.com/in/luke-haluska-8a1023299/",
   },
   {
     name: "Max Butterfass",
     role: "Influencer Marketing Coordinator",
+    image: { src: "/images/max.png", position: "center top" },
     initials: "MB",
     linkedin: "https://www.linkedin.com/in/maxbutterfass/",
   },

@@ -5,7 +5,7 @@ import { ARTICLES, type Article } from "@/lib/articles";
 import { SectionDivider } from "@/components/section-divider";
 
 export const metadata: Metadata = {
-  title: "News | TWDY Agency",
+  title: "News",
   description: "Latest news, campaigns, and announcements from TWDY Agency.",
 };
 

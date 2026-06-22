@@ -3,7 +3,7 @@ import Image from "next/image";
 import { SectionDivider } from "@/components/section-divider";
 
 export const metadata: Metadata = {
-  title: "Services | TWDY Agency",
+  title: "Services",
   description:
     "Brand partnerships, talent management, marketing, and growth from TWDY Agency.",
 };
