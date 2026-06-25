@@ -5,11 +5,6 @@ import { useEffect, useState } from "react";
 
 const ROTATING_IMAGES: { src: string; alt: string; position?: string }[] = [
   {
-    src: "/images/rotator/11-twdy-backdrop.png",
-    alt: "TWDY Agency event backdrop",
-    position: "center",
-  },
-  {
     src: "/images/rotator/05-tampa-basketball.png",
     alt: "Jordan Lanier — University of Tampa basketball",
     // Pull up so the top of his head doesn't crop

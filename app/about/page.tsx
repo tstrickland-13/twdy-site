@@ -89,8 +89,8 @@ export default function AboutPage() {
         <div className="container">
           <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]">
             <Image
-              src="/images/maximo-2.png"
-              alt="TWDY Agency"
+              src="/images/rotator/11-twdy-backdrop.png"
+              alt="TWDY Agency event backdrop"
               fill
               priority
               sizes="(max-width: 768px) 100vw, 1200px"
