@@ -101,34 +101,6 @@ export const ARTICLES: Article[] = [
       },
     ],
   },
-  {
-    slug: "coming-soon-1",
-    title: "TWDY Signs Rising Creator Class of 2026",
-    author: "Miles Tweedy",
-    readMin: 4,
-    date: "Coming Soon",
-    cover: {
-      src: "/images/maximo-2.png",
-      alt: "TWDY signing announcement",
-      position: "center",
-    },
-    excerpt:
-      "A look at the next wave of athletes and creators joining the TWDY roster.",
-  },
-  {
-    slug: "coming-soon-2",
-    title: "How NIL Is Reshaping College Sports Marketing",
-    author: "TWDY Agency",
-    readMin: 6,
-    date: "Coming Soon",
-    cover: {
-      src: "/images/jordan-2.png",
-      alt: "NIL article cover",
-      position: "center top",
-    },
-    excerpt:
-      "Inside the strategies brands and athletes are using to win in the NIL era.",
-  },
 ];
 
 export function getArticle(slug: string): Article | undefined {
