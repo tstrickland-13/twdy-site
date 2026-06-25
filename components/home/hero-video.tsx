@@ -2,10 +2,7 @@
 
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 
-const SEGMENTS = [
-  { src: "/videos/orange_Logo.mp4", type: "video/mp4" },
-  { src: "/videos/logo_words_v2.mp4", type: "video/mp4" },
-] as const;
+const HERO_VIDEO = { src: "/videos/hero.mp4", type: "video/mp4" } as const;
 
 // Small beat before the hero video mounts + plays in, so it doesn't slam in
 // the instant the page opens.
@@ -14,7 +11,6 @@ const START_DELAY_MS = 900;
 export function HeroVideo() {
   const heroRef = useRef<HTMLElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [segment, setSegment] = useState(0);
   const [ready, setReady] = useState(false);
 
   // Reveal after a short delay.
@@ -23,22 +19,14 @@ export function HeroVideo() {
     return () => window.clearTimeout(id);
   }, []);
 
-  // Wire up segment advancing + replay-on-scroll-to-top. Re-runs once the
-  // video element actually mounts (after `ready`).
+  // Replay the video from the start when the user scrolls back to the top.
+  // Re-runs once the video element actually mounts (after `ready`).
   useEffect(() => {
     const hero = heroRef.current;
     const video = videoRef.current;
     if (!hero || !video) return;
 
     let hasScrolledPast = false;
-
-    const onEnded = () => {
-      // Advance to the next segment if there is one. The final segment
-      // holds on the last frame.
-      if (segment < SEGMENTS.length - 1) {
-        setSegment((s) => s + 1);
-      }
-    };
 
     const onScroll = () => {
       const heroBottom = hero.offsetTop + hero.offsetHeight;
@@ -48,22 +36,19 @@ export function HeroVideo() {
         hasScrolledPast = true;
       }
       if (hasScrolledPast && scrollPosition < hero.offsetHeight * 0.5) {
-        // Scrolled back to the top: replay from segment 1.
+        // Scrolled back to the top: replay from the beginning.
         hasScrolledPast = false;
-        setSegment(0);
+        video.currentTime = 0;
+        void video.play();
       }
     };
 
-    video.addEventListener("ended", onEnded);
     window.addEventListener("scroll", onScroll, { passive: true });
 
     return () => {
-      video.removeEventListener("ended", onEnded);
       window.removeEventListener("scroll", onScroll);
     };
-  }, [segment, ready]);
-
-  const current = SEGMENTS[segment];
+  }, [ready]);
 
   const handleSkip = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -79,7 +64,7 @@ export function HeroVideo() {
     <section className="hero" id="hero" ref={heroRef}>
       {ready && (
         <video
-          key={current.src}
+          key={HERO_VIDEO.src}
           className="hero-video hero-video-fade-in"
           ref={videoRef}
           autoPlay
@@ -88,7 +73,7 @@ export function HeroVideo() {
           preload="auto"
           loop={false}
         >
-          <source src={current.src} type={current.type} />
+          <source src={HERO_VIDEO.src} type={HERO_VIDEO.type} />
         </video>
       )}
       <div className="hero-overlay" />

@@ -8,7 +8,11 @@ export default function manifest(): MetadataRoute.Manifest {
       "TWDY Agency is a creator & athlete management agency specializing in brand partnerships, campaign management, and talent strategy.",
     start_url: "/",
     display: "standalone",
-    background_color: "#000000",
+    // White to match the white-background TWDY logo used for the icons /
+    // splash screen.
+    background_color: "#ffffff",
+    // Kept black: theme_color controls the browser/OS UI chrome, which should
+    // continue to match the dark site rather than the white logo.
     theme_color: "#000000",
     icons: [
       {

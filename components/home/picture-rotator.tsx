@@ -88,39 +88,42 @@ export function PictureRotator() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-black">
-      {/* Full-bleed landscape stage — every rotating photo crops to the same
-          wide frame, edge to edge. */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[var(--color-surface)] sm:aspect-[16/10] md:aspect-[16/9]">
-        {ROTATING_IMAGES.map((img, i) => {
-          const active = i === index;
-          return (
-            <div
-              key={img.src}
-              className={[
-                "absolute inset-0 transition-opacity duration-[1400ms] ease-in-out",
-                active ? "opacity-100" : "opacity-0",
-              ].join(" ")}
-              aria-hidden={!active}
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                priority={i === 0}
-                sizes="100vw"
-                quality={95}
-                draggable={false}
-                onDragStart={(e) => e.preventDefault()}
+    <section className="bg-black py-12 md:py-16">
+      {/* Contained landscape stage — bounded by the site container with equal
+          breathing room on all sides, so the photo reads smaller than a
+          full-bleed frame but still prominent. */}
+      <div className="container">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[var(--color-surface)] sm:aspect-[16/10] md:aspect-[16/9]">
+          {ROTATING_IMAGES.map((img, i) => {
+            const active = i === index;
+            return (
+              <div
+                key={img.src}
                 className={[
-                  "object-cover transition-transform duration-[6000ms] ease-out",
-                  active ? "scale-[1.04]" : "scale-100",
+                  "absolute inset-0 transition-opacity duration-[1400ms] ease-in-out",
+                  active ? "opacity-100" : "opacity-0",
                 ].join(" ")}
-                style={{ objectPosition: img.position ?? "center" }}
-              />
-            </div>
-          );
-        })}
+                aria-hidden={!active}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  priority={i === 0}
+                  sizes="(min-width: 1280px) 1152px, 100vw"
+                  quality={95}
+                  draggable={false}
+                  onDragStart={(e) => e.preventDefault()}
+                  className={[
+                    "object-cover transition-transform duration-[6000ms] ease-out",
+                    active ? "scale-[1.04]" : "scale-100",
+                  ].join(" ")}
+                  style={{ objectPosition: img.position ?? "center" }}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

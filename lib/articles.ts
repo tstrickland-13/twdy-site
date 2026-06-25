@@ -79,27 +79,22 @@ export const ARTICLES: Article[] = [
     excerpt:
       "A new generation — Caitlin Clark, Angel Reese, Cameron Brink, and more — is elevating the WNBA on the court and unlocking major brand partnerships off it.",
     body: [
-      { type: "heading", text: "A New Generation" },
       {
         type: "paragraph",
         text: "The WNBA has been gaining significant traction. With this new generation's up-and-coming talent like Caitlin Clark, Angel Reese, and Cameron Brink, the WNBA is not only elevated by their level of play on the court but they've also increased the league's marketability, drawing in substantial brand partnerships.",
       },
-      { type: "heading", text: "The Caitlin Clark Effect" },
       {
         type: "paragraph",
         text: "Leading the charge is the 2024 number one pick, Caitlin Clark. Clark has been driving viewership for women's basketball since her college days. This included a matchup against South Carolina that drew nearly 19 million viewers, shattering records as the most-watched women's college basketball game ever. This momentum has carried into the WNBA, significantly enhancing her marketability. Rick Morrissey of the Chicago Sun-Times said, \u201CClark is going to put money in their pockets, just as Tiger Woods did for professional golfers when he burst onto the scene.\u201D What Morrissey means is that Clark will put money into some of the veterans' pockets just because of her influence, which will grow the WNBA as a whole. Clark recently signed with Wilson Basketball to a multi-year deal for a signature basketball line, a distinction previously held only by Michael Jordan.",
       },
-      { type: "heading", text: "Signature Deals and Crossover Appeal" },
       {
         type: "paragraph",
         text: "Another standout is Sabrina Ionescu of the New York Liberty. Her record-breaking college career at the University of Oregon and her seamless transition to the WNBA have made her a prominent figure. Ionescu's on-court prowess and charismatic personality have attracted endorsements from major brands like Nike, which signed her to a multi-year deal. This Nike endorsement came with her own signature shoe, which she and Nike decided to make unisex. The New York Times asked her about her shoe, and Ionescu said, \u201Cbridging the gap between women's and men's sports, and being able to do that by creating a unisex line that was available for everyone, that was obviously the most important (aspect) to me while designing this shoe.\u201D",
       },
-      { type: "heading", text: "Brands Take Notice" },
       {
         type: "paragraph",
         text: "The influx of talent and its subsequent marketability have not gone unnoticed by brands seeking to tap into the growing popularity of the WNBA. Partnerships with companies such as SKIMS, AT&T, Google, and Deloitte underscore the league's expanding commercial footprint. These partnerships exemplify how the WNBA's rising talent pool attracts diverse brand collaborations, each bringing unique value and exposure to the league. The involvement of high-profile companies not only boosts the WNBA's financial stability but also helps in elevating the league's profile, driving a cycle of growth and popularity.",
       },
-      { type: "heading", text: "Propelling the League Forward" },
       {
         type: "paragraph",
         text: "The young talent in the WNBA is propelling the league forward, both in terms of competitive excellence and market presence. These athletes are not only stars on the court but also influential figures in the world of sports marketing, drawing in brand partnerships that enhance the league's status and contribute to its continued growth.",
