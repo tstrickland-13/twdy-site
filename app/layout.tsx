@@ -11,7 +11,16 @@ const oswald = Oswald({
   display: "swap",
 });
 
-const SITE_URL = "https://twdyagency.com";
+// Base URL used to build absolute social-share URLs (og:image, twitter:image,
+// canonical, etc.). On Netlify, prefer the URL of the actual deploy so that
+// share images resolve on the same host that is serving the page — otherwise a
+// branch/preview deploy would point its og:image at production, which may not
+// have the route yet (404), causing scrapers like iMessage to fall back to a
+// random page image. Falls back to the production domain for local builds.
+const SITE_URL =
+  process.env.DEPLOY_PRIME_URL ||
+  process.env.URL ||
+  "https://twdyagency.com";
 
 const SITE_DESCRIPTION =
   "TWDY Agency is a creator & athlete management agency specializing in brand partnerships, campaign management, and talent strategy.";
