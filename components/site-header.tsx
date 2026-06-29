@@ -15,16 +15,53 @@ const NAV_ITEMS = [
 
 const SCROLL_THRESHOLD = 8;
 const REVEAL_AT_TOP = 80;
+// Past this scroll distance the (otherwise transparent) homepage header fades
+// to solid black so it stays legible over the content below the hero.
+const SOLID_BG_AFTER = 24;
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
   const lastScrollY = useRef(0);
   const ticking = useRef(false);
 
+  // Keep the fixed header glued to the *visual* viewport's top. On mobile
+  // (esp. iOS Safari) the visual viewport shifts relative to the layout
+  // viewport while the address bar collapses on scroll, which otherwise leaves
+  // a gap above a `top: 0` fixed element where the page content shows through.
+  // Mirroring `visualViewport.offsetTop` onto `top` re-pins it. No-op on
+  // desktop, where the offset stays 0.
+  useEffect(() => {
+    const vv = window.visualViewport;
+    if (!vv) return;
+
+    let frame = 0;
+    const sync = () => {
+      frame = 0;
+      const el = headerRef.current;
+      if (el) el.style.top = `${vv.offsetTop}px`;
+    };
+    const onChange = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(sync);
+    };
+
+    sync();
+    vv.addEventListener("scroll", onChange, { passive: true });
+    vv.addEventListener("resize", onChange, { passive: true });
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      vv.removeEventListener("scroll", onChange);
+      vv.removeEventListener("resize", onChange);
+    };
+  }, []);
+
   useEffect(() => {
     lastScrollY.current = window.scrollY;
+    setScrolled(window.scrollY > SOLID_BG_AFTER);
 
     const onScroll = () => {
       if (ticking.current) return;
@@ -32,6 +69,8 @@ export function SiteHeader() {
       window.requestAnimationFrame(() => {
         const current = window.scrollY;
         const delta = current - lastScrollY.current;
+
+        setScrolled(current > SOLID_BG_AFTER);
 
         // On mobile (< 768px) keep the header visible so the hamburger
         // is always tappable; only auto-hide on desktop.
@@ -61,10 +100,20 @@ export function SiteHeader() {
   // Always show nav while the mobile menu is open.
   const isHidden = hidden && !open;
 
+  // On the homepage the header floats transparently over the hero video, then
+  // fades to solid black once the user scrolls (or opens the mobile menu) so it
+  // stays legible over the content below.
+  const isHome = pathname === "/";
+  const transparent = isHome && !scrolled && !open;
+
   return (
     <header
+      ref={headerRef}
       className={[
-        "nav-fade-in fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black transition-transform duration-300 ease-out",
+        "nav-fade-in fixed inset-x-0 top-0 z-50 border-b transition-[transform,background-color,border-color] duration-300 ease-out",
+        transparent
+          ? "border-transparent bg-transparent"
+          : "border-white/10 bg-black",
         isHidden ? "-translate-y-full" : "translate-y-0",
       ].join(" ")}
     >

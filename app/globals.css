@@ -42,6 +42,11 @@
 }
 
 html {
+  /* Paint the root black too. On mobile (esp. iOS) the rubber-band overscroll
+     and the area behind the status bar / safe-area reveal the <html> element's
+     background, not <body>. Without this it defaults to white and shows as a
+     gap above the fixed black header. */
+  background-color: var(--color-bg);
   scroll-behavior: smooth;
   /* Gentle, optional scroll-snap. `proximity` only nudges into place when
      the user lands close to a snap point; long deliberate scrolls pass right
