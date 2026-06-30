@@ -18,6 +18,43 @@ export type Article = {
 };
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "curacao-world-cup-overnight-roi",
+    title:
+      "15 Saves, 1 Million Followers, 158K Citizens: Inside the Overnight ROI of the World Cup's Smallest Nation",
+    author: "Max Butterfass",
+    date: "Jun 30, 2026",
+    readMin: 3,
+    cover: {
+      src: "/images/rotator/03-santoros-soccer.png",
+      alt: "Soccer player representing the underdog World Cup story",
+      position: "center 20%",
+    },
+    excerpt:
+      "Curaçao — the smallest nation ever to qualify for a World Cup — turned a historic first goal and a 15-save clean sheet into a global marketing moment, sending goalkeeper Eloy Room from 45K to over a million followers overnight.",
+    body: [
+      {
+        type: "paragraph",
+        text: 'The FIFA World Cup is as much about the big names as the underdog stories, and no nation represents the latter as much as Curaçao. Curaçao is a Caribbean island with a population of roughly 158,000 people, the smallest ever to qualify for the World Cup. Led by legendary veteran Dutch manager Dick Advocaat, the "Blue Wave" relied on a dual-identity talent pool, with 25 of their 26 players born and raised in the Netherlands with ancestral Curaçaoan roots. Curaçao had an impressive ten match unbeaten run through qualifiers to earn their historic first ever trip to the World Cup. While massively unknown to most people, Curaçao quickly leveraged their unique story well before their opening match to prepare for their newfound spotlight. From hanging up billboards showcasing the team with the slogan "Small Island, Big Dreams" to riding into the tournament in an old school blue and yellow bus, Curaçao demonstrated efficient marketing of the Blue Wave to set themselves up for success beyond the pitch.',
+      },
+      {
+        type: "paragraph",
+        text: "Facing the tough task of opening up World Cup play against an international powerhouse in Germany, Curaçao stood strong. Even though the final score was 7-1, the highlight of the match was Curaçao's Livano Comenencia tying the score 1-1 in the 21st minute, a historic first goal for Curaçao. The team ran away with this moment by effectively building anticipation for it in the days and weeks prior. It is remarkable how a single play on the losing side of a blowout can become the focus of the match through effective marketing.",
+      },
+      {
+        type: "paragraph",
+        text: "Keeping public sentiment high proved to prevent a moral collapse, as Curaçao secured a historic 0-0 clean sheet draw against Ecuador, giving the nation its first ever World Cup point. 37 year old goalkeeper Eloy Room was the hero, racking up 15 saves, the second most ever in a single World Cup game. Room's performance had a ripple effect just as much off the field as on it. In just 24 hours, Eloy Room went from 45K followers to over one million.",
+      },
+      {
+        type: "paragraph",
+        text: "Room's social explosion is a perfect example of the modern athlete-creator economy. Overnight, he transformed from a second-division club goalkeeper to a globally recognized asset that will open doors for brand collaborations and popularity lasting well beyond the next few weeks. Internet culture and sports performance have become highly aligned. Sports marketers must understand how to prepare for and capitalize on brief viral moments to create lasting success.",
+      },
+      {
+        type: "paragraph",
+        text: "Regardless of the final result, Curaçao has positioned itself well for tourism and global outreach. Curaçao is set up to capitalize on consumer ad campaigns and more importantly, the ability to develop and bring talent to their soccer program.",
+      },
+    ],
+  },
   // Cover image is a placeholder — replace with Miles's final image
   {
     slug: "smart-brands-micro-influencers",
