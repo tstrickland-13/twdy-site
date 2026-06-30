@@ -27,6 +27,24 @@ export type Creator = {
 
 export const CREATORS: Creator[] = [
   {
+    slug: "laura",
+    name: "Laura Gomez",
+    shortRole: "Model · Influencer · Creator",
+    fullRole: "Model · Influencer · Content Creator",
+    category: "creator",
+    instagram: "https://www.instagram.com/laurgmzz",
+    description:
+      "A model and content creator with a massive, highly engaged audience across TikTok, Instagram, and X. Her polished, fashion-forward presence makes her a natural fit for beauty, fashion, swimwear, and lifestyle brands.",
+    tags: ["Fashion", "Beauty", "Lifestyle", "Modeling"],
+    images: [{ src: "/images/laura-1.png", alt: "Laura Gomez" }],
+    imagePosition: "center 20%",
+    stats: [
+      { label: "TikTok", value: "3.3M Followers" },
+      { label: "Instagram", value: "427K Followers" },
+      { label: "X", value: "147.1K Followers" },
+    ],
+  },
+  {
     slug: "tayvion",
     name: "Tayvion Power",
     shortRole: "Artist · Model · Creator",
