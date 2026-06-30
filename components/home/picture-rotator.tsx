@@ -50,10 +50,10 @@ export function PictureRotator() {
           breathing room on all sides, so the photo reads smaller than a
           full-bleed frame but still prominent. */}
       <div className="container">
-        {/* Portrait-leaning stage that fits vertical creator shots. Width is
-            capped and centered so it stays a tasteful frame on desktop instead
-            of a giant full-width block. */}
-        <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl bg-[var(--color-surface)] md:max-w-lg">
+        {/* Portrait on phones (4:5) to fit vertical creator shots, opening up
+            to a large centered square on desktop so it commands real space
+            without going edge-to-edge. */}
+        <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl bg-[var(--color-surface)] sm:max-w-lg md:aspect-[1/1] md:max-w-3xl">
           {ROTATING_IMAGES.map((img, i) => {
             const active = i === index;
             return (
