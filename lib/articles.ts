@@ -19,6 +19,82 @@ export type Article = {
 
 export const ARTICLES: Article[] = [
   {
+    slug: "what-makes-an-athlete-marketable-2026",
+    title: "What Makes an Athlete Marketable in 2026?",
+    author: "Luke Haluska",
+    date: "Jun 30, 2026",
+    readMin: 4,
+    cover: {
+      src: "/images/rotator/08-soccer-stanley.png",
+      alt: "The rise of the creator-athlete",
+      position: "center 20%",
+    },
+    excerpt:
+      "The rise of the creator-athlete. In 2026, elite performance only opens the door — the athletes turning World Cup attention into direct fan relationships, like Lamine Yamal, are the ones building lasting marketability.",
+    body: [
+      {
+        type: "paragraph",
+        text: "As the 2026 FIFA World Cup continues to capture the attention of fans around the globe, a new generation of athletes is stepping into the spotlight. But unlike in previous eras, their marketability is not built solely on their performances on the field.",
+      },
+      {
+        type: "paragraph",
+        text: "Athletes like Lamine Yamal have become global stars before even reaching the traditional prime of their careers. While elite performance remains important, much of their influence comes from what happens outside of competition. Through social media, content creation, and direct engagement with fans, athletes are building audiences that extend far beyond game day and into the social landscape.",
+      },
+      {
+        type: "paragraph",
+        text: "This shift reflects a broader change in sports marketing.",
+      },
+      {
+        type: "paragraph",
+        text: "It used to be simple. An athlete plays well, wins championships, appears in commercials, and collects their paycheck. But in 2026, having elite talent is only part of the equation. It earns athletes a platform, but it does not guarantee they will capture or keep people's attention.",
+      },
+      {
+        type: "paragraph",
+        text: "Today, the most marketable athletes do not just play sports; they operate as creator-athletes. They know how to communicate with fans, create content, and build communities around their personal brands. These creator-athletes no longer rely on television broadcasts or media coverage to reach audiences. Instead, they connect directly with fans every day on social media.",
+      },
+      {
+        type: "paragraph",
+        text: "At TWDY, we are seeing this shift happen in real time. Attention has become one of the most valuable assets in sports marketing, and the athletes who consistently earn it are separating themselves from the competition. A strong personal brand is no longer an added benefit and is now a core driver of commercial value.",
+      },
+      {
+        type: "heading",
+        text: "The Second Contract",
+      },
+      {
+        type: "paragraph",
+        text: "For decades, an athlete's earning potential was tied almost entirely to their playing contract. The growth of social media and the creator economy has changed that, creating opportunities that exist far beyond the game itself.",
+      },
+      {
+        type: "paragraph",
+        text: "Brands are looking for athletes who can do more than perform. They want partners who can create content, tell relatable stories, and engage audiences. Nowadays, an athlete with a highly engaged community can often deliver more value than a bigger name with less digital influence.",
+      },
+      {
+        type: "paragraph",
+        text: "Look at Lamine Yamal. The World Cup has introduced him to millions of new fans across the globe, but the tournament itself is only part of the story. Between matches, fans are consuming his content on TikTok, YouTube, Instagram, and other platforms at a rate never seen before. Yamal has capitalized on that attention by creating content that feels authentic and easy to access, giving fans a look into his life beyond the pitch. The result is a relationship that extends far beyond the ninety minutes they watch him play.",
+      },
+      {
+        type: "paragraph",
+        text: "The World Cup is no longer just a sporting event. It is one of the largest attention-generating platforms in the world. For athletes, every viral moment, interview, behind-the-scenes video, and social media interaction becomes an opportunity to grow their audience. The athletes who maximize those moments are often the ones who emerge from the tournament with the greatest long-term commercial value.",
+      },
+      {
+        type: "paragraph",
+        text: "What makes these athletes valuable is not simply the size of their following. It is the relationship they have built with their fans. Fans are no longer just watching athletes compete; they are following their daily lives, personalities, interests, and stories.",
+      },
+      {
+        type: "paragraph",
+        text: "This shift is changing how athletes think about their careers. Social media is not just a place to post highlights or fulfill sponsorship obligations. It has become a business tool. Every piece of content, fan interaction, and story shared online contributes to the long-term value of an athlete's personal brand.",
+      },
+      {
+        type: "paragraph",
+        text: "As the World Cup continues to introduce athletes like Lamine Yamal to massive global audiences, the biggest winners will not simply be the best performers. They will be the athletes who know how to turn tournament exposure into long-term engagement, community, and business opportunities.",
+      },
+      {
+        type: "paragraph",
+        text: "The athletes who will succeed in the next era of sports marketing are not just training to become better players. They are learning how to become better creator-athletes. Talent opens the door, but the ability to capture attention and build an audience is what creates lasting marketability and value.",
+      },
+    ],
+  },
+  {
     slug: "curacao-world-cup-overnight-roi",
     title:
       "15 Saves, 1 Million Followers, 158K Citizens: Inside the Overnight ROI of the World Cup's Smallest Nation",
