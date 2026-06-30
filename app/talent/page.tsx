@@ -18,7 +18,7 @@ export default function TalentPage() {
 
   return (
     <>
-      <section className="bg-black pb-16 pt-32 md:pt-40">
+      <section className="bg-black pb-8 pt-32 md:pt-40">
         <div className="container">
           <p className="font-[family-name:var(--font-oswald)] text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] md:text-base">
             Our Roster
@@ -71,7 +71,9 @@ function RosterSection({
   return (
     <section
       className={[
-        first ? "py-20 md:py-28" : "border-t border-[var(--color-border)] py-20 md:py-28",
+        first
+          ? "pt-12 pb-20 md:pt-16 md:pb-28"
+          : "border-t border-[var(--color-border)] py-20 md:py-28",
         bgDark ? "bg-black" : "bg-[var(--color-surface)]",
       ].join(" ")}
     >

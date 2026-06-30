@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function NewsPage() {
   return (
     <>
-      <section className="bg-black pb-12 pt-32 md:pt-40">
+      <section className="bg-black pb-8 pt-32 md:pt-40">
         <div className="container">
           <p className="font-[family-name:var(--font-oswald)] text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] md:text-base">
             The Latest
@@ -29,7 +29,7 @@ export default function NewsPage() {
         </div>
       </section>
 
-      <SectionDivider />
+      <SectionDivider compact />
 
       <div>
         {ARTICLES.map((article, idx) => (
@@ -78,7 +78,9 @@ function ArticleRow({
   return (
     <section
       className={[
-        first ? "py-20 md:py-28" : "border-t border-[var(--color-border)] py-20 md:py-28",
+        first
+          ? "pt-12 pb-20 md:pt-16 md:pb-28"
+          : "border-t border-[var(--color-border)] py-20 md:py-28",
         dark ? "bg-black" : "bg-[var(--color-surface)]",
       ].join(" ")}
     >

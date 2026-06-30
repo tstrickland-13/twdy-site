@@ -62,7 +62,7 @@ const TEAM: TeamMember[] = [
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-black pb-12 pt-32 md:pt-40">
+      <section className="bg-black pb-8 pt-32 md:pt-40">
         <div className="container">
           <p className="font-[family-name:var(--font-oswald)] text-sm font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] md:text-base">
             The Goal
@@ -83,9 +83,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <SectionDivider />
+      <SectionDivider compact />
 
-      <section className="bg-black py-12 md:py-16">
+      <section className="bg-black pt-12 pb-12 md:pt-16 md:pb-16">
         <div className="container">
           <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)]">
             <Image
