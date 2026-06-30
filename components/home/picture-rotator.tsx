@@ -11,9 +11,19 @@ const ROTATING_IMAGES: { src: string; alt: string; position?: string }[] = [
     position: "center 22%",
   },
   {
+    src: "/images/rotator/04-sunset-wall.png",
+    alt: "Creator portrait — sunset wall",
+    position: "center 22%",
+  },
+  {
     src: "/images/rotator/rotator-02-leather-jacket.png",
     alt: "Creator portrait in a leather varsity jacket",
     position: "center 28%",
+  },
+  {
+    src: "/images/rotator/02-hidden-hills-drink.png",
+    alt: "Hidden Hills brand campaign",
+    position: "center 22%",
   },
   {
     src: "/images/rotator/rotator-03-studio.png",
@@ -21,14 +31,41 @@ const ROTATING_IMAGES: { src: string; alt: string; position?: string }[] = [
     position: "center 28%",
   },
   {
+    src: "/images/rotator/05-tampa-basketball.png",
+    alt: "Jordan Lanier — University of Tampa basketball",
+    // Pull up so the top of his head doesn't crop
+    position: "center 10%",
+  },
+  {
     src: "/images/rotator/rotator-04-chrysler.png",
     alt: "Creator posing with a classic Chrysler",
     position: "center 30%",
   },
   {
+    src: "/images/rotator/06-hidden-hills-hoodie.png",
+    alt: "Hidden Hills apparel shoot",
+    // Move down so face + hoodie design read together
+    position: "center 55%",
+  },
+  {
     src: "/images/rotator/rotator-05-runway.png",
     alt: "Creator walking a fashion runway",
     position: "center 22%",
+  },
+  {
+    src: "/images/rotator/03-santoros-soccer.png",
+    alt: "Santoro's Pizza soccer campaign",
+    position: "center 30%",
+  },
+  {
+    src: "/images/rotator/09-pyo-panel.png",
+    alt: "PYO — Where Fashion Meets You panel",
+    position: "center",
+  },
+  {
+    src: "/images/rotator/10-pyo-event.png",
+    alt: "PYO fashion event",
+    position: "center",
   },
 ];
 

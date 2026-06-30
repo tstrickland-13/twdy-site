@@ -3,17 +3,21 @@ import Image from "next/image";
 type MarqueeImage = { src: string; alt: string; position?: string };
 
 const ROW_TOP: MarqueeImage[] = [
-  { src: "/images/campaigns/campaign-01-jimmy-johns.png", alt: "Creator outside a Jimmy John's storefront", position: "center 30%" },
-  { src: "/images/campaigns/campaign-05-huda-beauty.png", alt: "Creator showcasing a Huda Beauty product", position: "center" },
-  { src: "/images/campaigns/campaign-03-puma-couch.png", alt: "Creator on a couch with a Puma basketball and neon sign", position: "center 40%" },
-  { src: "/images/campaigns/campaign-06-call-of-duty.png", alt: "Creator at the Call of Duty Level Up Lab event", position: "center 40%" },
+  { src: "/images/campaigns/campaign-jimmy-johns.png", alt: "Creator outside a Jimmy John's storefront", position: "center 30%" },
+  { src: "/images/campaigns/campaign-huda-beauty.png", alt: "Creator showcasing a Huda Beauty product", position: "center" },
+  { src: "/images/campaigns/campaign-soccer-stanley.png", alt: "Soccer field campaign holding a pink Stanley tumbler", position: "center 20%" },
+  { src: "/images/campaigns/campaign-call-of-duty.png", alt: "Creator at the Call of Duty Level Up Lab event", position: "center 40%" },
+  { src: "/images/campaigns/campaign-rte-hoodie.png", alt: "Creator in a black Run Through Everything hoodie", position: "center 25%" },
+  { src: "/images/campaigns/campaign-xbox.png", alt: "Creator posing in front of a giant Xbox logo", position: "center" },
 ];
 
 const ROW_BOTTOM: MarqueeImage[] = [
-  { src: "/images/campaigns/campaign-02-tone-unboxing.png", alt: "Creator unboxing a TONE product", position: "center" },
-  { src: "/images/campaigns/campaign-07-xbox.png", alt: "Creator posing in front of a giant Xbox logo", position: "center" },
-  { src: "/images/campaigns/campaign-04-wrecking-crew.png", alt: "Creator in front of a Wrecking Crew poster", position: "center" },
-  { src: "/images/campaigns/campaign-08-true-religion.png", alt: "Creator in a True Religion graphic tank top", position: "center" },
+  { src: "/images/campaigns/campaign-puma-couch.png", alt: "Creator on a couch with a Puma basketball and neon sign", position: "center 40%" },
+  { src: "/images/campaigns/campaign-true-religion.png", alt: "Creator in a True Religion graphic tank top", position: "center 30%" },
+  { src: "/images/campaigns/campaign-barber-basketball.png", alt: "Athlete in a red shirt holding a basketball in a barber chair", position: "center 20%" },
+  { src: "/images/campaigns/campaign-tone-unboxing.png", alt: "Creator unboxing a TONE product", position: "center" },
+  { src: "/images/campaigns/campaign-pau-sweater.png", alt: "Man on a street with a blue PAU varsity sweater over his shoulder", position: "center 20%" },
+  { src: "/images/campaigns/campaign-wrecking-crew.png", alt: "Creator in front of a Wrecking Crew poster", position: "center" },
 ];
 
 function MarqueeRow({
