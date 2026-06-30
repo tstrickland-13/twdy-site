@@ -5,68 +5,30 @@ import { useEffect, useState } from "react";
 
 const ROTATING_IMAGES: { src: string; alt: string; position?: string }[] = [
   {
-    src: "/images/rotator/05-tampa-basketball.png",
-    alt: "Jordan Lanier — University of Tampa basketball",
-    // Pull up so the top of his head doesn't crop
-    position: "center 10%",
-  },
-  {
-    src: "/images/rotator/12-leather-jacket.png",
-    alt: "Creator portrait — leather jacket",
-    position: "center 18%",
-  },
-  {
-    src: "/images/rotator/02-hidden-hills-drink.png",
-    alt: "Hidden Hills brand campaign",
+    src: "/images/rotator/rotator-01-spartans-basketball.png",
+    alt: "University of Tampa Spartans basketball player at the free-throw line",
+    // Portrait in a wide frame — bias to the top to keep his face in view.
     position: "center 22%",
   },
   {
-    src: "/images/rotator/03-santoros-soccer.png",
-    alt: "Santoro's Pizza soccer campaign",
+    src: "/images/rotator/rotator-02-leather-jacket.png",
+    alt: "Creator portrait in a leather varsity jacket",
+    position: "center 28%",
+  },
+  {
+    src: "/images/rotator/rotator-03-studio.png",
+    alt: "Creator in a black studio fashion shoot",
+    position: "center 28%",
+  },
+  {
+    src: "/images/rotator/rotator-04-chrysler.png",
+    alt: "Creator posing with a classic Chrysler",
     position: "center 30%",
   },
   {
-    src: "/images/rotator/01-jimmy-johns.png",
-    alt: "Jimmy John's brand activation",
-    // Push down so we lean on the body, not the sign
-    position: "center 60%",
-  },
-  {
-    src: "/images/rotator/06-hidden-hills-hoodie.png",
-    alt: "Hidden Hills apparel shoot",
-    // Move down so face + hoodie design read together
-    position: "center 55%",
-  },
-  {
-    src: "/images/rotator/07-tampa-barber.png",
-    alt: "Tampa Spartans creator portrait",
+    src: "/images/rotator/rotator-05-runway.png",
+    alt: "Creator walking a fashion runway",
     position: "center 22%",
-  },
-  {
-    src: "/images/rotator/04-sunset-wall.png",
-    alt: "Creator portrait — sunset wall",
-    position: "center 22%",
-  },
-  {
-    src: "/images/rotator/08-soccer-stanley.png",
-    alt: "Soccer training campaign",
-    position: "center 35%",
-  },
-  {
-    src: "/images/rotator/13-puma-couch.png",
-    alt: "Puma brand activation",
-    // Landscape; bring head/sign into view
-    position: "center 35%",
-  },
-  {
-    src: "/images/rotator/09-pyo-panel.png",
-    alt: "PYO — Where Fashion Meets You panel",
-    position: "center",
-  },
-  {
-    src: "/images/rotator/10-pyo-event.png",
-    alt: "PYO fashion event",
-    position: "center",
   },
 ];
 
