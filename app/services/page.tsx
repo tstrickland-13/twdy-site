@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Services",
   description:
     "Brand partnerships, talent management, marketing, and growth from TWDY Agency.",
+  alternates: { canonical: "/services" },
 };
 
 type Service = {

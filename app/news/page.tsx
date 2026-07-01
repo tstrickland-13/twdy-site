@@ -7,6 +7,7 @@ import { SectionDivider } from "@/components/section-divider";
 export const metadata: Metadata = {
   title: "News",
   description: "Latest news, campaigns, and announcements from TWDY Agency.",
+  alternates: { canonical: "/news" },
 };
 
 export default function NewsPage() {

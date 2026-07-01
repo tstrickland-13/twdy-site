@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { HeroVideo } from "@/components/home/hero-video";
 import { SpecializeSection } from "@/components/home/specialize-section";
 import { TaglineBlock } from "@/components/home/tagline-block";
@@ -6,6 +7,10 @@ import { PhotoMarquee } from "@/components/home/photo-marquee";
 import { AboutSplit } from "@/components/home/about-split";
 import { AtTwdySection } from "@/components/home/at-twdy-section";
 import { ContactForm } from "@/components/home/contact-form";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
   return (

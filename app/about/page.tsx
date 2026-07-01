@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "TWDY Agency bridges brands and creators through authentic, story-driven partnerships.",
+  alternates: { canonical: "/about" },
 };
 
 type TeamMember = {

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Talent",
   description:
     "Meet the creators, influencers, and athletes represented by TWDY Agency.",
+  alternates: { canonical: "/talent" },
 };
 
 const ROSTER_EMAIL = "mailto:info@twdyagency.com?subject=Full%20Roster%20Request";

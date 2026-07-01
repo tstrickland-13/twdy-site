@@ -7,6 +7,7 @@ import { TiktokIcon } from "@/components/icons/tiktok-icon";
 export const metadata: Metadata = {
   title: "Contact",
   description: "Get in touch with TWDY Agency to start a partnership.",
+  alternates: { canonical: "/contact" },
 };
 
 const SOCIALS = [

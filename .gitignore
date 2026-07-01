@@ -40,3 +40,10 @@ build/
 
 # TypeScript
 *.tsbuildinfo
+
+# Unused source videos (only hero.mp4 is used on the site)
+public/videos/logo_words.mp4
+public/videos/logo_words_v2.mp4
+public/videos/orange_Logo.mp4
+public/videos/twdy_intro.mp4
+public/videos/twdy_intro_combined.mp4
