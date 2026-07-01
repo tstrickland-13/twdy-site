@@ -250,8 +250,13 @@ body {
   z-index: 2;
 }
 
-/* Hero video fades in when it mounts (after the start delay). CSS-driven so
-   it never depends on JS play() timing in production. */
+/* Hero video mounts immediately (hidden) so autoplay can start early, then
+   fades in after the start delay. CSS-driven so visibility never depends on
+   JS play() timing in production. */
+.hero-video-pending {
+  opacity: 0;
+}
+
 @keyframes hero-fade-in {
   from {
     opacity: 0;
@@ -266,6 +271,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero-video-pending,
   .hero-video-fade-in {
     animation: none;
     opacity: 1;
