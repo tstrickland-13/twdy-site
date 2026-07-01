@@ -4,23 +4,46 @@ import { useEffect, useRef, useState, type MouseEvent } from "react";
 
 const HERO_VIDEO = { src: "/videos/hero.mp4", type: "video/mp4" } as const;
 
-// Small beat before the hero video mounts + plays in, so it doesn't slam in
-// the instant the page opens.
+// Small beat before the hero video fades in, so it doesn't slam in the instant
+// the page opens. The element mounts immediately so autoplay can start early.
 const START_DELAY_MS = 900;
 
 export function HeroVideo() {
   const heroRef = useRef<HTMLElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
-  const [ready, setReady] = useState(false);
+  const [visible, setVisible] = useState(false);
 
-  // Reveal after a short delay.
+  // Fade in after a short delay.
   useEffect(() => {
-    const id = window.setTimeout(() => setReady(true), START_DELAY_MS);
+    const id = window.setTimeout(() => setVisible(true), START_DELAY_MS);
     return () => window.clearTimeout(id);
   }, []);
 
+  // Start playback as soon as the video is in the DOM; retry once media is ready.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+
+    const attemptPlay = () => {
+      void video.play().catch(() => {
+        // Autoplay blocked by browser policy — video stays on first frame.
+      });
+    };
+
+    if (video.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      attemptPlay();
+    } else {
+      video.addEventListener("canplay", attemptPlay, { once: true });
+    }
+
+    return () => {
+      video.removeEventListener("canplay", attemptPlay);
+    };
+  }, []);
+
   // Replay the video from the start when the user scrolls back to the top.
-  // Re-runs once the video element actually mounts (after `ready`).
   useEffect(() => {
     const hero = heroRef.current;
     const video = videoRef.current;
@@ -48,7 +71,7 @@ export function HeroVideo() {
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
-  }, [ready]);
+  }, []);
 
   const handleSkip = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -62,20 +85,18 @@ export function HeroVideo() {
 
   return (
     <section className="hero" id="hero" ref={heroRef}>
-      {ready && (
-        <video
-          key={HERO_VIDEO.src}
-          className="hero-video hero-video-fade-in"
-          ref={videoRef}
-          autoPlay
-          muted
-          playsInline
-          preload="auto"
-          loop={false}
-        >
-          <source src={HERO_VIDEO.src} type={HERO_VIDEO.type} />
-        </video>
-      )}
+      <video
+        key={HERO_VIDEO.src}
+        className={`hero-video${visible ? " hero-video-fade-in" : " hero-video-pending"}`}
+        ref={videoRef}
+        autoPlay
+        muted
+        playsInline
+        preload="auto"
+        loop={false}
+      >
+        <source src={HERO_VIDEO.src} type={HERO_VIDEO.type} />
+      </video>
       <div className="hero-overlay" />
 
       <a
