@@ -25,9 +25,9 @@ export const ARTICLES: Article[] = [
     date: "Jun 30, 2026",
     readMin: 4,
     cover: {
-      src: "/images/rotator/08-soccer-stanley.png",
-      alt: "The rise of the creator-athlete",
-      position: "center 20%",
+      src: "/images/articles/athlete-marketable.png",
+      alt: "University of Tampa Spartans player rising for a dunk during warmups",
+      position: "center 30%",
     },
     excerpt:
       "The rise of the creator-athlete. In 2026, elite performance only opens the door — the athletes turning World Cup attention into direct fan relationships, like Lamine Yamal, are the ones building lasting marketability.",
@@ -102,9 +102,9 @@ export const ARTICLES: Article[] = [
     date: "Jun 30, 2026",
     readMin: 3,
     cover: {
-      src: "/images/rotator/03-santoros-soccer.png",
-      alt: "Soccer player representing the underdog World Cup story",
-      position: "center 20%",
+      src: "/images/articles/curacao-training.png",
+      alt: "Two soccer players in training bibs walking off the pitch under the lights",
+      position: "center 25%",
     },
     excerpt:
       "Curaçao — the smallest nation ever to qualify for a World Cup — turned a historic first goal and a 15-save clean sheet into a global marketing moment, sending goalkeeper Eloy Room from 45K to over a million followers overnight.",

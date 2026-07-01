@@ -88,9 +88,9 @@ export function PictureRotator() {
           full-bleed frame but still prominent. */}
       <div className="container">
         {/* Portrait on phones (4:5) to fit vertical creator shots, opening up
-            to a large centered square on desktop so it commands real space
-            without going edge-to-edge. */}
-        <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl bg-[var(--color-surface)] sm:max-w-lg md:aspect-[1/1] md:max-w-3xl">
+            to a wide, slightly-portrait stage on desktop so it commands real
+            space without going fully edge-to-edge. */}
+        <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl bg-[var(--color-surface)] sm:max-w-lg md:aspect-[16/15] md:max-w-[64rem]">
           {ROTATING_IMAGES.map((img, i) => {
             const active = i === index;
             return (
@@ -107,7 +107,7 @@ export function PictureRotator() {
                   alt={img.alt}
                   fill
                   priority={i === 0}
-                  sizes="(min-width: 1280px) 1152px, 100vw"
+                  sizes="(min-width: 1280px) 1024px, 100vw"
                   quality={95}
                   draggable={false}
                   onDragStart={(e) => e.preventDefault()}
